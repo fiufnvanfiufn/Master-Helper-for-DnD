@@ -21,8 +21,6 @@ namespace button {
         label.setFont(font);
         label.setString(text);
 
-        label.setFillColor(sf::Color::White);
-
         sf::FloatRect bounds = label.getLocalBounds();
         label.setOrigin(bounds.left + bounds.width / 2.f, bounds.top + bounds.height / 2.f);
 
@@ -38,10 +36,12 @@ namespace button {
             sprite.setScale(0.4f, 0.4f);
             label.setCharacterSize(28);
             clickableArea = sf::FloatRect(pos.x + 40, pos.y + 140, 360, 120);
+            label.setFillColor(sf::Color::White);
         } else if (type == "MusicButton") {
             sprite.setScale(0.2f, 0.2f);
             label.setCharacterSize(20);
             clickableArea = sf::FloatRect(pos.x + 20, pos.y + 80, 180, 60);
+            label.setFillColor(sf::Color::Black);
         } else {
             clickableArea = sprite.getGlobalBounds();
         }

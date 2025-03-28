@@ -26,7 +26,7 @@ int main() {
     bool soundPadOpen = false;
     sf::RenderWindow soundPad;
     sf::Music whisper;
-    if (!whisper.openFromFile("assets/soundEffects/whisper.mp3")) {
+    if (!whisper.openFromFile("assets/soundEffects/Whisper.mp3")) {
         return -1;
     }
 
