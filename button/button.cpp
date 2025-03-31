@@ -5,7 +5,9 @@ namespace button {
         // Загружаем нужную текстуру по типу кнопки
         std::map<std::string, std::string> texturePaths = {
             {"DragonButton", "assets/pictures/buttons/DragonButton.png"},
-            {"MusicButton", "assets/pictures/buttons/MusicButton.png"}
+            {"MusicButton", "assets/pictures/buttons/MusicButton.png"},
+            {"MagicButton", "assets/pictures/buttons/MagicButton.png"}
+
         };
 
         if (!texture.loadFromFile(texturePaths[type])) {
@@ -42,6 +44,11 @@ namespace button {
             label.setCharacterSize(20);
             clickableArea = sf::FloatRect(pos.x + 20, pos.y + 80, 180, 60);
             label.setFillColor(sf::Color::Black);
+        } else if (type == "MagicButton") {
+            sprite.setScale(0.15f, 0.15f);
+            label.setCharacterSize(20);
+            clickableArea = sf::FloatRect(pos.x + 40, pos.y + 40, 140, 70);
+            label.setFillColor(sf::Color::Red);
         } else {
             clickableArea = sprite.getGlobalBounds();
         }

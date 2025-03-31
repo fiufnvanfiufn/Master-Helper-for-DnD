@@ -166,6 +166,54 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MasterHelper.dir/build.make CMakeFiles/MasterHelper.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+menu.o: menu.cpp.o
+.PHONY : menu.o
+
+# target to build an object file
+menu.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MasterHelper.dir/build.make CMakeFiles/MasterHelper.dir/menu.cpp.o
+.PHONY : menu.cpp.o
+
+menu.i: menu.cpp.i
+.PHONY : menu.i
+
+# target to preprocess a source file
+menu.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MasterHelper.dir/build.make CMakeFiles/MasterHelper.dir/menu.cpp.i
+.PHONY : menu.cpp.i
+
+menu.s: menu.cpp.s
+.PHONY : menu.s
+
+# target to generate assembly for a file
+menu.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MasterHelper.dir/build.make CMakeFiles/MasterHelper.dir/menu.cpp.s
+.PHONY : menu.cpp.s
+
+soundPad.o: soundPad.cpp.o
+.PHONY : soundPad.o
+
+# target to build an object file
+soundPad.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MasterHelper.dir/build.make CMakeFiles/MasterHelper.dir/soundPad.cpp.o
+.PHONY : soundPad.cpp.o
+
+soundPad.i: soundPad.cpp.i
+.PHONY : soundPad.i
+
+# target to preprocess a source file
+soundPad.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MasterHelper.dir/build.make CMakeFiles/MasterHelper.dir/soundPad.cpp.i
+.PHONY : soundPad.cpp.i
+
+soundPad.s: soundPad.cpp.s
+.PHONY : soundPad.s
+
+# target to generate assembly for a file
+soundPad.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MasterHelper.dir/build.make CMakeFiles/MasterHelper.dir/soundPad.cpp.s
+.PHONY : soundPad.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -179,6 +227,12 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... menu.o"
+	@echo "... menu.i"
+	@echo "... menu.s"
+	@echo "... soundPad.o"
+	@echo "... soundPad.i"
+	@echo "... soundPad.s"
 .PHONY : help
 
 

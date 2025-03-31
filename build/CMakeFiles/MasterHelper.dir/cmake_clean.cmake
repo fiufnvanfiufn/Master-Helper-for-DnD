@@ -1,6 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/MasterHelper.dir/main.cpp.o"
   "CMakeFiles/MasterHelper.dir/main.cpp.o.d"
+  "CMakeFiles/MasterHelper.dir/menu.cpp.o"
+  "CMakeFiles/MasterHelper.dir/menu.cpp.o.d"
+  "CMakeFiles/MasterHelper.dir/soundPad.cpp.o"
+  "CMakeFiles/MasterHelper.dir/soundPad.cpp.o.d"
   "MasterHelper"
   "MasterHelper.pdb"
 )

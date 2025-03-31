@@ -9,6 +9,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/sans2114/Master-Helper-for-DnD/main.cpp" "CMakeFiles/MasterHelper.dir/main.cpp.o" "gcc" "CMakeFiles/MasterHelper.dir/main.cpp.o.d"
+  "/home/sans2114/Master-Helper-for-DnD/menu.cpp" "CMakeFiles/MasterHelper.dir/menu.cpp.o" "gcc" "CMakeFiles/MasterHelper.dir/menu.cpp.o.d"
+  "/home/sans2114/Master-Helper-for-DnD/soundPad.cpp" "CMakeFiles/MasterHelper.dir/soundPad.cpp.o" "gcc" "CMakeFiles/MasterHelper.dir/soundPad.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
