@@ -46,9 +46,9 @@ namespace button {
             label.setFillColor(sf::Color::Black);
         } else if (type == "MagicButton") {
             sprite.setScale(0.15f, 0.15f);
-            label.setCharacterSize(20);
+            label.setCharacterSize(24);
             clickableArea = sf::FloatRect(pos.x + 40, pos.y + 40, 140, 70);
-            label.setFillColor(sf::Color::Red);
+            label.setFillColor(sf::Color::Blue);
         } else {
             clickableArea = sprite.getGlobalBounds();
         }

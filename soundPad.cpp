@@ -17,9 +17,15 @@ void runSoundPad(sf::Font& font) {
                         900.f / backgroundTexture.getSize().y);
 
     button::Button whisperButton(0, 50, "MagicButton", L"Шёпот", font);
+    button::Button armorHitButton(0, 180, "MagicButton", L"Удар в броню", font);
+
 
     sf::Music whisper;
-    if (!whisper.openFromFile("assets/soundEffects/whisper.mp3")) {
+    if (!whisper.openFromFile("assets/soundEffects/Whisper.mp3")) {
+        return;
+    }
+    sf::Music armorHit;
+    if (!armorHit.openFromFile("assets/soundEffects/SwordToArmor.ogg")) {
         return;
     }
 
@@ -27,7 +33,6 @@ void runSoundPad(sf::Font& font) {
         sf::Event event;
         while (soundPad.pollEvent(event)) {
             if (event.type == sf::Event::Closed) {
-                whisper.stop();
                 soundPad.close();
             }
 
@@ -36,14 +41,19 @@ void runSoundPad(sf::Font& font) {
                 if (whisperButton.isClicked(mousePos)) {
                     whisper.play();
                 }
+                if (armorHitButton.isClicked(mousePos)) {
+                    armorHit.play();
+                }
             }
         }
 
         sf::Vector2i mouse = sf::Mouse::getPosition(soundPad);
         whisperButton.update(sf::Vector2f(mouse));
+        armorHitButton.update(sf::Vector2f(mouse));
 
         soundPad.clear();
         soundPad.draw(background);
+        armorHitButton.draw(soundPad);
         whisperButton.draw(soundPad);
         soundPad.display();
     }
