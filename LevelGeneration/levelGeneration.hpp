@@ -124,5 +124,4 @@ public:
         builder.setRoomWidth();
         return builder.GetRoom();
     }
-
 };
