@@ -4,33 +4,31 @@
 #include <random>
 
 class RandomGenerator {
-    public:
-        static int getRandomNumber(int min, int max) {
-            static std::random_device rd;
-            static std::mt19937 generator(rd());
-            std::uniform_int_distribution<int> dist(min, max);
-            return dist(generator);
-        }
+public:
+    static int getRandomNumber(int min, int max) {
+        static std::random_device rd;
+        static std::mt19937 generator(rd());
+        std::uniform_int_distribution<int> dist(min, max);
+        return dist(generator);
+    }
 };
 
 class room {
 private:
-    int _roomLength;
-    int _roomWidth;
-    char** Room;
+    int _roomLength = 0;
+    int _roomWidth = 0;
+    char** Room = nullptr;
 public:
-    room() {
-        Room = new char*[_roomWidth];
-        for (int i{}; i < _roomWidth; ++i) {
-            Room[i] = new char[_roomLength];
-        }
-    }
+    room() {}
 
     ~room() {
-        for (int i{}; i < _roomWidth; ++i) {
-            delete[] Room[i];
+        if (Room != nullptr) {
+            for (int i = 0; i < _roomWidth; ++i) {
+                delete[] Room[i];
+            }
+            delete[] Room;
+            Room = nullptr;
         }
-        delete[] Room;
     }
 
     void SetRoomWidth(int roomWidth) {
@@ -43,37 +41,39 @@ public:
 
     void SetRoom() {
         if (Room != nullptr) {
-            for (int i{}; i < _roomWidth; ++i) {
+            for (int i = 0; i < _roomWidth; ++i) {
                 delete[] Room[i];
             }
             delete[] Room;
+            Room = nullptr;
         }
 
-
         Room = new char*[_roomWidth];
-        for (int i{}; i < _roomWidth; ++i) {
+        for (int i = 0; i < _roomWidth; ++i) {
             Room[i] = new char[_roomLength];
         }
 
-        for (int i{}; i < _roomWidth; ++i) {
-            for (int j{}; j < _roomLength; ++j)
+        for (int i = 0; i < _roomWidth; ++i) {
+            for (int j = 0; j < _roomLength; ++j) {
                 if (i == _roomWidth - 1 || i == 0 || j == 0 || j == _roomLength - 1) {
                     Room[i][j] = 's';
                 } else {
                     Room[i][j] = 'f';
                 }
+            }
         }
     }
 
     void print() {
-        for (int i{}; i < _roomWidth; ++i) {
-            for (int j{}; j < _roomLength; ++j)
-                std::cout << '[' << Room[i][j] << ']' << std::endl;
+        for (int i = 0; i < _roomWidth; ++i) {
+            for (int j = 0; j < _roomLength; ++j) {
+                std::cout << '[' << Room[i][j] << ']';
+            }
+            std::cout << std::endl;
         }
         std::cout << std::endl;
     }
 };
-
 
 class RoomBuilder {
 protected:
@@ -82,9 +82,11 @@ public:
     RoomBuilder() {
         ex = new room();
     }
+
     virtual ~RoomBuilder() {
         delete ex;
     }
+
     virtual void setRoomLength() = 0;
     virtual void setRoomWidth() = 0;
 
@@ -93,7 +95,7 @@ public:
     }
 };
 
-class SmallRoomBuilder: public RoomBuilder {
+class SmallRoomBuilder : public RoomBuilder {
 public:
     void setRoomLength() override {
         ex->SetRoomLength(RandomGenerator::getRandomNumber(4, 7));
@@ -104,16 +106,14 @@ public:
     }
 };
 
-class LargeRoomBuilder: public RoomBuilder {
+class LargeRoomBuilder : public RoomBuilder {
 public:
     void setRoomLength() override {
         ex->SetRoomLength(RandomGenerator::getRandomNumber(8, 12));
-        ex->SetRoom();
     }
 
     void setRoomWidth() override {
         ex->SetRoomWidth(RandomGenerator::getRandomNumber(10, 14));
-        ex->SetRoom();
     }
 };
 
@@ -122,6 +122,7 @@ public:
     room* CreateRoom(RoomBuilder& builder) {
         builder.setRoomLength();
         builder.setRoomWidth();
+        builder.GetRoom()->SetRoom();
         return builder.GetRoom();
     }
 };
