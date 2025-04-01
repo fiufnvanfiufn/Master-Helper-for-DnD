@@ -1,4 +1,4 @@
-# Install script for directory: /home/sans2114/Master-Helper-for-DnD/button
+# Install script for directory: /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/button
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

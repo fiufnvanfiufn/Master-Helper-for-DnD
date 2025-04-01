@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/sans2114/Master-Helper-for-DnD
+CMAKE_SOURCE_DIR = /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sans2114/Master-Helper-for-DnD/build
+CMAKE_BINARY_DIR = /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/sans2114/Master-Helper-for-DnD/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/sans2114/Master-Helper-for-DnD/build/CMakeFiles /home/sans2114/Master-Helper-for-DnD/build/button//CMakeFiles/progress.marks
-	cd /home/sans2114/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 button/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sans2114/Master-Helper-for-DnD/build/CMakeFiles 0
+	cd /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build/CMakeFiles /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build/button//CMakeFiles/progress.marks
+	cd /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 button/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/sans2114/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 button/clean
+	cd /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 button/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/sans2114/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 button/preinstall
+	cd /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 button/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/sans2114/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 button/preinstall
+	cd /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 button/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/sans2114/Master-Helper-for-DnD/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 button/CMakeFiles/button.dir/rule:
-	cd /home/sans2114/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 button/CMakeFiles/button.dir/rule
+	cd /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 button/CMakeFiles/button.dir/rule
 .PHONY : button/CMakeFiles/button.dir/rule
 
 # Convenience name for target.
@@ -127,7 +127,7 @@ button: button/CMakeFiles/button.dir/rule
 
 # fast build rule for target.
 button/fast:
-	cd /home/sans2114/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f button/CMakeFiles/button.dir/build.make button/CMakeFiles/button.dir/build
+	cd /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f button/CMakeFiles/button.dir/build.make button/CMakeFiles/button.dir/build
 .PHONY : button/fast
 
 button.o: button.cpp.o
@@ -135,7 +135,7 @@ button.o: button.cpp.o
 
 # target to build an object file
 button.cpp.o:
-	cd /home/sans2114/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f button/CMakeFiles/button.dir/build.make button/CMakeFiles/button.dir/button.cpp.o
+	cd /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f button/CMakeFiles/button.dir/build.make button/CMakeFiles/button.dir/button.cpp.o
 .PHONY : button.cpp.o
 
 button.i: button.cpp.i
@@ -143,7 +143,7 @@ button.i: button.cpp.i
 
 # target to preprocess a source file
 button.cpp.i:
-	cd /home/sans2114/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f button/CMakeFiles/button.dir/build.make button/CMakeFiles/button.dir/button.cpp.i
+	cd /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f button/CMakeFiles/button.dir/build.make button/CMakeFiles/button.dir/button.cpp.i
 .PHONY : button.cpp.i
 
 button.s: button.cpp.s
@@ -151,7 +151,7 @@ button.s: button.cpp.s
 
 # target to generate assembly for a file
 button.cpp.s:
-	cd /home/sans2114/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f button/CMakeFiles/button.dir/build.make button/CMakeFiles/button.dir/button.cpp.s
+	cd /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f button/CMakeFiles/button.dir/build.make button/CMakeFiles/button.dir/button.cpp.s
 .PHONY : button.cpp.s
 
 # Help Target
@@ -177,6 +177,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/sans2114/Master-Helper-for-DnD/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

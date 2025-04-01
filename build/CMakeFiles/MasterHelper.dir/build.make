@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/sans2114/Master-Helper-for-DnD
+CMAKE_SOURCE_DIR = /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sans2114/Master-Helper-for-DnD/build
+CMAKE_BINARY_DIR = /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/MasterHelper.dir/depend.make
@@ -70,46 +70,46 @@ include CMakeFiles/MasterHelper.dir/progress.make
 include CMakeFiles/MasterHelper.dir/flags.make
 
 CMakeFiles/MasterHelper.dir/main.cpp.o: CMakeFiles/MasterHelper.dir/flags.make
-CMakeFiles/MasterHelper.dir/main.cpp.o: /home/sans2114/Master-Helper-for-DnD/main.cpp
+CMakeFiles/MasterHelper.dir/main.cpp.o: /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/main.cpp
 CMakeFiles/MasterHelper.dir/main.cpp.o: CMakeFiles/MasterHelper.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/sans2114/Master-Helper-for-DnD/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/MasterHelper.dir/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MasterHelper.dir/main.cpp.o -MF CMakeFiles/MasterHelper.dir/main.cpp.o.d -o CMakeFiles/MasterHelper.dir/main.cpp.o -c /home/sans2114/Master-Helper-for-DnD/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/MasterHelper.dir/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MasterHelper.dir/main.cpp.o -MF CMakeFiles/MasterHelper.dir/main.cpp.o.d -o CMakeFiles/MasterHelper.dir/main.cpp.o -c /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/main.cpp
 
 CMakeFiles/MasterHelper.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MasterHelper.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sans2114/Master-Helper-for-DnD/main.cpp > CMakeFiles/MasterHelper.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/main.cpp > CMakeFiles/MasterHelper.dir/main.cpp.i
 
 CMakeFiles/MasterHelper.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MasterHelper.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sans2114/Master-Helper-for-DnD/main.cpp -o CMakeFiles/MasterHelper.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/main.cpp -o CMakeFiles/MasterHelper.dir/main.cpp.s
 
 CMakeFiles/MasterHelper.dir/menu.cpp.o: CMakeFiles/MasterHelper.dir/flags.make
-CMakeFiles/MasterHelper.dir/menu.cpp.o: /home/sans2114/Master-Helper-for-DnD/menu.cpp
+CMakeFiles/MasterHelper.dir/menu.cpp.o: /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/menu.cpp
 CMakeFiles/MasterHelper.dir/menu.cpp.o: CMakeFiles/MasterHelper.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/sans2114/Master-Helper-for-DnD/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/MasterHelper.dir/menu.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MasterHelper.dir/menu.cpp.o -MF CMakeFiles/MasterHelper.dir/menu.cpp.o.d -o CMakeFiles/MasterHelper.dir/menu.cpp.o -c /home/sans2114/Master-Helper-for-DnD/menu.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/MasterHelper.dir/menu.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MasterHelper.dir/menu.cpp.o -MF CMakeFiles/MasterHelper.dir/menu.cpp.o.d -o CMakeFiles/MasterHelper.dir/menu.cpp.o -c /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/menu.cpp
 
 CMakeFiles/MasterHelper.dir/menu.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MasterHelper.dir/menu.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sans2114/Master-Helper-for-DnD/menu.cpp > CMakeFiles/MasterHelper.dir/menu.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/menu.cpp > CMakeFiles/MasterHelper.dir/menu.cpp.i
 
 CMakeFiles/MasterHelper.dir/menu.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MasterHelper.dir/menu.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sans2114/Master-Helper-for-DnD/menu.cpp -o CMakeFiles/MasterHelper.dir/menu.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/menu.cpp -o CMakeFiles/MasterHelper.dir/menu.cpp.s
 
 CMakeFiles/MasterHelper.dir/soundPad.cpp.o: CMakeFiles/MasterHelper.dir/flags.make
-CMakeFiles/MasterHelper.dir/soundPad.cpp.o: /home/sans2114/Master-Helper-for-DnD/soundPad.cpp
+CMakeFiles/MasterHelper.dir/soundPad.cpp.o: /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/soundPad.cpp
 CMakeFiles/MasterHelper.dir/soundPad.cpp.o: CMakeFiles/MasterHelper.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/sans2114/Master-Helper-for-DnD/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/MasterHelper.dir/soundPad.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MasterHelper.dir/soundPad.cpp.o -MF CMakeFiles/MasterHelper.dir/soundPad.cpp.o.d -o CMakeFiles/MasterHelper.dir/soundPad.cpp.o -c /home/sans2114/Master-Helper-for-DnD/soundPad.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/MasterHelper.dir/soundPad.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MasterHelper.dir/soundPad.cpp.o -MF CMakeFiles/MasterHelper.dir/soundPad.cpp.o.d -o CMakeFiles/MasterHelper.dir/soundPad.cpp.o -c /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/soundPad.cpp
 
 CMakeFiles/MasterHelper.dir/soundPad.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MasterHelper.dir/soundPad.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sans2114/Master-Helper-for-DnD/soundPad.cpp > CMakeFiles/MasterHelper.dir/soundPad.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/soundPad.cpp > CMakeFiles/MasterHelper.dir/soundPad.cpp.i
 
 CMakeFiles/MasterHelper.dir/soundPad.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MasterHelper.dir/soundPad.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sans2114/Master-Helper-for-DnD/soundPad.cpp -o CMakeFiles/MasterHelper.dir/soundPad.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/soundPad.cpp -o CMakeFiles/MasterHelper.dir/soundPad.cpp.s
 
 # Object files for target MasterHelper
 MasterHelper_OBJECTS = \
@@ -125,17 +125,17 @@ MasterHelper: CMakeFiles/MasterHelper.dir/menu.cpp.o
 MasterHelper: CMakeFiles/MasterHelper.dir/soundPad.cpp.o
 MasterHelper: CMakeFiles/MasterHelper.dir/build.make
 MasterHelper: button/libbutton.a
-MasterHelper: /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.6.1
-MasterHelper: /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.6.1
-MasterHelper: /usr/lib/x86_64-linux-gnu/libsfml-audio.so.2.6.1
-MasterHelper: /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.6.1
-MasterHelper: /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.6.1
-MasterHelper: /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.6.1
-MasterHelper: /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.6.1
+MasterHelper: /usr/local/lib/libsfml-graphics.so.2.6.1
+MasterHelper: /usr/local/lib/libsfml-window.so.2.6.1
+MasterHelper: /usr/local/lib/libsfml-audio.so.2.6.1
+MasterHelper: /usr/local/lib/libsfml-graphics.so.2.6.1
+MasterHelper: /usr/local/lib/libsfml-window.so.2.6.1
+MasterHelper: /usr/local/lib/libsfml-system.so.2.6.1
+MasterHelper: /usr/local/lib/libsfml-system.so.2.6.1
 MasterHelper: CMakeFiles/MasterHelper.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/sans2114/Master-Helper-for-DnD/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable MasterHelper"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable MasterHelper"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MasterHelper.dir/link.txt --verbose=$(VERBOSE)
-	/usr/bin/cmake -E copy_directory /home/sans2114/Master-Helper-for-DnD/assets /home/sans2114/Master-Helper-for-DnD/build/assets
+	/usr/bin/cmake -E copy_directory /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/assets /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build/assets
 
 # Rule to build all files generated by this target.
 CMakeFiles/MasterHelper.dir/build: MasterHelper
@@ -146,6 +146,6 @@ CMakeFiles/MasterHelper.dir/clean:
 .PHONY : CMakeFiles/MasterHelper.dir/clean
 
 CMakeFiles/MasterHelper.dir/depend:
-	cd /home/sans2114/Master-Helper-for-DnD/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sans2114/Master-Helper-for-DnD /home/sans2114/Master-Helper-for-DnD /home/sans2114/Master-Helper-for-DnD/build /home/sans2114/Master-Helper-for-DnD/build /home/sans2114/Master-Helper-for-DnD/build/CMakeFiles/MasterHelper.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build/CMakeFiles/MasterHelper.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/MasterHelper.dir/depend
 
