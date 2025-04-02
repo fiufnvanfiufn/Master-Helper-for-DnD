@@ -10,11 +10,11 @@ class Button {
     public:
         Button(float x, float y, const std::string& type, const std::wstring& text, sf::Font& font);
 
-        void draw(sf::RenderWindow& window);
-        bool isClicked(const sf::Vector2f& mousePos) const;
-        void update(const sf::Vector2f& mousePos);
+        virtual void draw(sf::RenderWindow& window);
+        virtual bool isClicked(const sf::Vector2f& mousePos) const;
+        virtual void update(const sf::Vector2f& mousePos);
 
-    private:
+    protected:
         sf::Sprite sprite;
         sf::Text label;
         sf::FloatRect clickableArea;
@@ -24,6 +24,14 @@ class Button {
         void configureClickableArea(const std::string& type);
 };
 
+class SoundEffectButton : public Button {
+    public:
+        SoundEffectButton(float x, float y, std::string type, const std::wstring& text, sf::Font& font, const std::string& soundName);
+        void play();
+
+    private:
+        sf::Music music;
+};
 }
 
 
