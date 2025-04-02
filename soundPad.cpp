@@ -2,7 +2,7 @@
 #include <SFML/Audio.hpp>
 #include "soundPad.hpp"
 #include "button/button.hpp"
-
+#include <vector>
 
 void runSoundPad(sf::Font& font) {
     sf::RenderWindow soundPad(sf::VideoMode(600, 900), L"Саундпад");
@@ -23,6 +23,10 @@ void runSoundPad(sf::Font& font) {
     button::SoundEffectButton swordClashButton(0, 530, "MagicButton", L"Столкновение мечей", font, "SwordClash.ogg");
     button::SoundEffectButton arrowHitButton(0, 650, "MagicButton", L"Попадание стрелой", font, "ArrowHit.ogg");
 
+    std::vector<button::SoundEffectButton*> buttons = {
+        &whisperButton, &armorHitButton, &swordMissButton,
+        &swordHitButton, &swordClashButton, &arrowHitButton
+    };
 
     while (soundPad.isOpen()) {
         sf::Event event;
@@ -33,43 +37,24 @@ void runSoundPad(sf::Font& font) {
 
             if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
                 sf::Vector2f mousePos(event.mouseButton.x, event.mouseButton.y);
-                if (whisperButton.isClicked(mousePos)) {
-                    whisperButton.play();
-                }
-                if (armorHitButton.isClicked(mousePos)) {
-                    armorHitButton.play();
-                }
-                if (swordMissButton.isClicked(mousePos)) {
-                    swordMissButton.play();
-                }
-                if (swordHitButton.isClicked(mousePos)) {
-                    swordHitButton.play();
-                }
-                if (arrowHitButton.isClicked(mousePos)) {
-                    arrowHitButton.play();
-                }
-                if (swordClashButton.isClicked(mousePos)) {
-                    swordClashButton.play();
+                for (auto* b : buttons) {
+                    if (b->isClicked(mousePos)) {
+                        b->play();
+                    }
                 }
             }
         }
 
         sf::Vector2i mouse = sf::Mouse::getPosition(soundPad);
-        whisperButton.update(sf::Vector2f(mouse));
-        armorHitButton.update(sf::Vector2f(mouse));
-        swordMissButton.update(sf::Vector2f(mouse));
-        swordHitButton.update(sf::Vector2f(mouse));
-        arrowHitButton.update(sf::Vector2f(mouse));
-        swordClashButton.update(sf::Vector2f(mouse));
+        for (auto* b : buttons) {
+            b->update(sf::Vector2f(mouse));
+        }
 
         soundPad.clear();
         soundPad.draw(background);
-        armorHitButton.draw(soundPad);
-        whisperButton.draw(soundPad);
-        arrowHitButton.draw(soundPad);
-        swordClashButton.draw(soundPad);
-        swordMissButton.draw(soundPad);
-        swordHitButton.draw(soundPad);
+        for (auto* b : buttons) {
+            b->draw(soundPad);
+        }
         soundPad.display();
     }
 }
