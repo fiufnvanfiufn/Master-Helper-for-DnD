@@ -31,7 +31,7 @@ void Button::configureClickableArea(const std::string& type) {
     sf::Vector2f pos = sprite.getPosition();
     if (type == "DragonButton") {
         sprite.setScale(0.4f, 0.4f);
-        label.setCharacterSize(28);
+        label.setCharacterSize(36);
         clickableArea = sf::FloatRect(pos.x + 40, pos.y + 140, 360, 120);
         label.setFillColor(sf::Color::White);
     } else if (type == "MusicButton") {
@@ -43,7 +43,7 @@ void Button::configureClickableArea(const std::string& type) {
         sprite.setScale(0.20f, 0.15f);
         label.setCharacterSize(24);
         clickableArea = sf::FloatRect(pos.x + 40, pos.y + 40, 200, 70);
-        label.setFillColor(sf::Color::Blue);
+        label.setFillColor(sf::Color::White);
     } else {
         clickableArea = sprite.getGlobalBounds();
     }
