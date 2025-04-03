@@ -81,4 +81,44 @@ SoundEffectButton::SoundEffectButton(float x, float y, std::string type, const s
 void SoundEffectButton::play() {
     music.play();
 }
+
+MusicThemeButton::MusicThemeButton(float x, float y, const std::wstring& text, sf::Font& font, const std::string& folder)
+    : Button(x, y, "MusicButton", text, font), musicFolder("assets/music/" + folder), isPlaying(false) {
+    for (const std::filesystem::directory_entry& entry : std::filesystem::directory_iterator(musicFolder)) {
+        if (entry.path().extension() == ".ogg" || entry.path().extension() == ".mp3") {
+            playlist.push_back(entry.path().string());
+        }
+    }
+}
+
+void MusicThemeButton::playOrStop() {
+    if (isPlaying) {
+        music.stop();
+        isPlaying = false;
+    } else {
+        playRandom();
+        isPlaying = true;
+    }
+}
+
+void MusicThemeButton::updateLoop() {
+    if (isPlaying && music.getStatus() == sf::Music::Stopped) {
+        playRandom();
+    }
+}
+
+void MusicThemeButton::playRandom() {
+    if (!playlist.empty()) {
+        static std::random_device rd;
+        static std::mt19937 gen(rd());
+        std::uniform_int_distribution<> dis(0, playlist.size() - 1);
+        std::string selected = playlist[dis(gen)];
+
+        if (!music.openFromFile(selected)) {
+            throw std::runtime_error("Не удалось загрузить музыкальный трек: " + selected);
+        }
+        music.play();
+    }
+}
+
 }  // namespace button

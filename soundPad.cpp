@@ -48,7 +48,7 @@ void runSoundPad(sf::Font& font) {
 
             if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
                 sf::Vector2f mousePos(event.mouseButton.x, event.mouseButton.y);
-                for (auto* b : buttons) {
+                for (button::SoundEffectButton* b : buttons) {
                     if (b->isClicked(mousePos)) {
                         b->play();
                     }
@@ -57,13 +57,13 @@ void runSoundPad(sf::Font& font) {
         }
 
         sf::Vector2i mouse = sf::Mouse::getPosition(soundPad);
-        for (auto* b : buttons) {
+        for (button::SoundEffectButton* b : buttons) {
             b->update(sf::Vector2f(mouse));
         }
 
         soundPad.clear();
         soundPad.draw(background);
-        for (auto* b : buttons) {
+        for (button::SoundEffectButton* b : buttons) {
             b->draw(soundPad);
         }
         soundPad.display();

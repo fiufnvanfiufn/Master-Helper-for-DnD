@@ -3,6 +3,9 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <string>
+#include <filesystem>
+#include <random>
+#include <stdexcept>
 #include <map>
 
 namespace button {
@@ -32,6 +35,21 @@ class SoundEffectButton : public Button {
     private:
         sf::Music music;
 };
+
+class MusicThemeButton : public button::Button {
+    public:
+        MusicThemeButton(float x, float y, const std::wstring& text, sf::Font& font, const std::string& folder);
+        void playOrStop();
+        void updateLoop();
+    
+    private:
+        std::string musicFolder;
+        std::vector<std::string> playlist;
+        sf::Music music;
+        bool isPlaying;
+    
+        void playRandom();
+    };
 }
 
 

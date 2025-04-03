@@ -3,6 +3,7 @@
 #include "menu.hpp"
 #include "soundPad.hpp"
 #include "button/button.hpp"
+#include "musicPanel.hpp"
 
 int runMainMenu(sf::Font& font) {
     sf::RenderWindow menu(sf::VideoMode(1920, 1080), L"Меню");
@@ -16,6 +17,7 @@ int runMainMenu(sf::Font& font) {
                         1080.f / backgroundTexture.getSize().y);
 
     button::Button soundPadOpenButton(50, 600, "DragonButton", L"Открыть саундпад", font);
+    button::Button musicPanelOpenButton(450, 600, "DragonButton", L"Открыть музыкальную панель", font);
 
     while (menu.isOpen()) {
         sf::Event event;
@@ -33,9 +35,11 @@ int runMainMenu(sf::Font& font) {
 
         sf::Vector2i mouse = sf::Mouse::getPosition(menu);
         soundPadOpenButton.update(sf::Vector2f(mouse));
+        musicPanelOpenButton.update(sf::Vector2f(mouse));
 
         menu.clear();
         menu.draw(background);
+        musicPanelOpenButton.draw(menu);
         soundPadOpenButton.draw(menu);
         menu.display();
     }
