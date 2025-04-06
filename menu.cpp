@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include <thread>
 #include <SFML/Audio.hpp>
 #include "menu.hpp"
 #include "soundPad.hpp"
@@ -16,8 +17,8 @@ int runMainMenu(sf::Font& font) {
     background.setScale(1920.f / backgroundTexture.getSize().x,
                         1080.f / backgroundTexture.getSize().y);
 
-    button::Button soundPadOpenButton(50, 600, "DragonButton", L"Открыть саундпад", font);
-    button::Button musicPanelOpenButton(450, 600, "DragonButton", L"Открыть музыкальную панель", font);
+    button::Button soundPadOpenButton(50, 600, "DragonButton", L"Саундпад", font);
+    button::Button musicPanelOpenButton(450, 600, "DragonButton", L"Музыкальная панель", font);
 
     while (menu.isOpen()) {
         sf::Event event;
@@ -28,7 +29,15 @@ int runMainMenu(sf::Font& font) {
             if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
                 sf::Vector2f mousePos(event.mouseButton.x, event.mouseButton.y);
                 if (soundPadOpenButton.isClicked(mousePos)) {
-                    runSoundPad(font);
+                    std::thread soundPadThread([&font]() {
+                        runSoundPad(font);
+                    });
+                    soundPadThread.detach();
+                } else if (musicPanelOpenButton.isClicked(mousePos)) {
+                    std::thread musicPanelThread([&font]() {
+                        runMusicPanel(font);
+                    });
+                    musicPanelThread.detach();
                 }
             }
         }

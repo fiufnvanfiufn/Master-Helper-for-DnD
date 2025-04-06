@@ -2,5 +2,5 @@
 #define MUSICPANEL_HPP
 #include <SFML/Graphics.hpp>
 
-int runMusicPanel(sf::Font& font);
+void runMusicPanel(sf::Font& font);
 #endif

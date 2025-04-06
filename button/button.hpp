@@ -40,17 +40,17 @@ class MusicThemeButton : public button::Button {
     public:
         MusicThemeButton(float x, float y, const std::wstring& text, sf::Font& font, const std::string& folder);
         void playOrStop();
-        void updateLoop();
-    
+        void update(const sf::Vector2f& mousePos) override;
+
     private:
         std::string musicFolder;
         std::vector<std::string> playlist;
         sf::Music music;
         bool isPlaying;
-    
-        void playRandom();
-    };
-}
 
+        void playRandom();
+};
+
+} // namespace button
 
 #endif

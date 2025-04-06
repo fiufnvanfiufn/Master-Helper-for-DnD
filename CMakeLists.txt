@@ -12,6 +12,7 @@ add_executable(MasterHelper
     main.cpp
     menu.cpp
     soundPad.cpp
+    musicPanel.cpp
 )
 
 target_link_libraries(MasterHelper

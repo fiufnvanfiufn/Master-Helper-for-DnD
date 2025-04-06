@@ -4,7 +4,7 @@ namespace button {
 Button::Button(float x, float y, const std::string& type, const std::wstring& text, sf::Font& font) {
     std::map<std::string, std::string> texturePaths = {
         {"DragonButton", "assets/pictures/buttons/DragonButton.png"},
-        {"MusicButton",  "assets/pictures/buttons/SoundEffectButton.png" },
+        {"MusicButton",  "assets/pictures/buttons/MusicButton.png" },
         {"MagicButton",  "assets/pictures/buttons/MagicButton.png" }
     };
 
@@ -35,10 +35,10 @@ void Button::configureClickableArea(const std::string& type) {
         clickableArea = sf::FloatRect(pos.x + 40, pos.y + 140, 360, 120);
         label.setFillColor(sf::Color::White);
     } else if (type == "MusicButton") {
-        sprite.setScale(0.2f, 0.2f);
-        label.setCharacterSize(20);
-        clickableArea = sf::FloatRect(pos.x + 20, pos.y + 80, 180, 60);
-        label.setFillColor(sf::Color::Black);
+        sprite.setScale(0.35f, 0.2f);
+        label.setCharacterSize(46);
+        clickableArea = sf::FloatRect(pos.x + 40, pos.y + 40, 280, 120);
+        label.setFillColor(sf::Color::White);
     } else if (type == "MagicButton") {
         sprite.setScale(0.20f, 0.15f);
         label.setCharacterSize(24);
@@ -101,7 +101,8 @@ void MusicThemeButton::playOrStop() {
     }
 }
 
-void MusicThemeButton::updateLoop() {
+void MusicThemeButton::update(const sf::Vector2f& mousePos) {
+    Button::update(mousePos);
     if (isPlaying && music.getStatus() == sf::Music::Stopped) {
         playRandom();
     }
