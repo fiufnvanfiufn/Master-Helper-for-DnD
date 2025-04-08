@@ -82,8 +82,8 @@ void SoundEffectButton::play() {
     music.play();
 }
 
-MusicThemeButton::MusicThemeButton(float x, float y, const std::wstring& text, sf::Font& font, const std::string& folder)
-    : Button(x, y, "MusicButton", text, font), musicFolder("assets/music/" + folder), isPlaying(false) {
+MusicThemeButton::MusicThemeButton(float x, float y, std::string type, const std::wstring& text, sf::Font& font, const std::string& folder)
+    : Button(x, y, type, text, font), musicFolder("assets/music/" + folder), isPlaying(false) {
     for (const std::filesystem::directory_entry& entry : std::filesystem::directory_iterator(musicFolder)) {
         if (entry.path().extension() == ".ogg" || entry.path().extension() == ".mp3") {
             playlist.push_back(entry.path().string());

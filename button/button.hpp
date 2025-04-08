@@ -38,7 +38,7 @@ class SoundEffectButton : public Button {
 
 class MusicThemeButton : public button::Button {
     public:
-        MusicThemeButton(float x, float y, const std::wstring& text, sf::Font& font, const std::string& folder);
+        MusicThemeButton(float x, float y, std::string type, const std::wstring& text, sf::Font& font, const std::string& folder);
         void playOrStop();
         void update(const sf::Vector2f& mousePos) override;
 
@@ -47,7 +47,6 @@ class MusicThemeButton : public button::Button {
         std::vector<std::string> playlist;
         sf::Music music;
         bool isPlaying;
-
         void playRandom();
 };
 
