@@ -16,10 +16,13 @@ void runMusicPanel(sf::Font& font) {
     background.setScale(600.f / backgroundTexture.getSize().x,
                         1000.f / backgroundTexture.getSize().y);
 
-    button::MusicThemeButton tavernMusicButton(120, 200, "MusicButton", L"Таверна", font, "tavern");
+    button::MusicThemeButton tavernMusicButton(30, 200, "TavernButton", L"Таверна", font, "tavern");
+    button::MusicThemeButton overWorldMusicButton(300, 200, "OverWorldButton", L"Верхний мир", font, "overWorld");
+
 
     std::vector<button::MusicThemeButton*> buttons = {
-        &tavernMusicButton
+        &tavernMusicButton,
+        &overWorldMusicButton
     };
 
     while (musicPanel.isOpen()) {

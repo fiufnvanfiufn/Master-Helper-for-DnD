@@ -5,7 +5,9 @@ Button::Button(float x, float y, const std::string& type, const std::wstring& te
     std::map<std::string, std::string> texturePaths = {
         {"DragonButton", "assets/pictures/buttons/DragonButton.png"},
         {"MusicButton",  "assets/pictures/buttons/MusicButton.png" },
-        {"MagicButton",  "assets/pictures/buttons/MagicButton.png" }
+        {"MagicButton",  "assets/pictures/buttons/MagicButton.png" },
+        {"TavernButton", "assets/pictures/buttons/TavernButton.png"},
+        {"OverWorldButton", "assets/pictures/buttons/OverWorldButton.png"}
     };
 
     if (!texture.loadFromFile(texturePaths[type])) {
@@ -43,6 +45,16 @@ void Button::configureClickableArea(const std::string& type) {
         sprite.setScale(0.20f, 0.15f);
         label.setCharacterSize(24);
         clickableArea = sf::FloatRect(pos.x + 40, pos.y + 40, 200, 70);
+        label.setFillColor(sf::Color::White);
+    } else if (type == "TavernButton") {
+        sprite.setScale(0.2f, 0.2f);
+        label.setCharacterSize(32);
+        clickableArea = sf::FloatRect(pos.x, pos.y, 250, 150);
+        label.setFillColor(sf::Color::White);
+    } else if (type == "OverWorldButton") {
+        sprite.setScale(0.4f, 0.4f);
+        label.setCharacterSize(32);
+        clickableArea = sf::FloatRect(pos.x, pos.y, 250, 150);
         label.setFillColor(sf::Color::White);
     } else {
         clickableArea = sprite.getGlobalBounds();
