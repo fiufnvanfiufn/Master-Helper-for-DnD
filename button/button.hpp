@@ -36,7 +36,7 @@ class SoundEffectButton : public Button {
         sf::Music music;
 };
 
-class MusicThemeButton : public button::Button {
+class MusicThemeButton : public Button {
     public:
         MusicThemeButton(float x, float y, std::string type, const std::wstring& text, sf::Font& font, const std::string& folder);
         void playOrStop();

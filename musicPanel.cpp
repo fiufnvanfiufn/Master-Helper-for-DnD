@@ -18,11 +18,15 @@ void runMusicPanel(sf::Font& font) {
 
     button::MusicThemeButton tavernMusicButton(30, 200, "TavernButton", L"Таверна", font, "tavern");
     button::MusicThemeButton overWorldMusicButton(300, 200, "OverWorldButton", L"Верхний мир", font, "overWorld");
+    button::MusicThemeButton normalBattleMusicButton(30, 350, "NormalBattleButton", L"Обычная битва", font, "normalBattle");
+    button::MusicThemeButton bossBattleMusicButton(300, 350, "BossBattleButton", L"Битва с боссом   ", font, "bossMusic");
 
 
     std::vector<button::MusicThemeButton*> buttons = {
         &tavernMusicButton,
-        &overWorldMusicButton
+        &overWorldMusicButton,
+        &normalBattleMusicButton,
+        &bossBattleMusicButton
     };
 
     while (musicPanel.isOpen()) {
