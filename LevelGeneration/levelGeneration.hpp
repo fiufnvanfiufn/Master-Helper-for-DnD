@@ -56,13 +56,23 @@ public:
         for (int i = 0; i < _roomWidth; ++i) {
             for (int j = 0; j < _roomLength; ++j) {
                 if (i == _roomWidth - 1 || i == 0 || j == 0 || j == _roomLength - 1) {
-                    Room[i][j] = 's';
+                    Room[i][j] = 'w';
                 } else {
                     Room[i][j] = 'f';
                 }
             }
         }
     }
+
+    /*void SetTorchesinRoom(int a) {
+
+        for (int i = 0; i < _roomWidth - 1; ++i) {
+            for (int j = 0; j < _roomLength - 1; ++j) {
+                if (i == _roomWidth - 2 || i == 1 || j == 1 || j == _roomLength - 2) {
+                    RandomGenerator
+            }
+        }
+    }*/
 
     void print() {
         for (int i = 0; i < _roomWidth; ++i) {
