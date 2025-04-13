@@ -9,7 +9,12 @@ Button::Button(float x, float y, const std::string& type, const std::wstring& te
         {"TavernButton", "assets/pictures/buttons/TavernButton.png"},
         {"OverWorldButton", "assets/pictures/buttons/OverWorldButton.png"},
         {"NormalBattleButton", "assets/pictures/buttons/NormalBattleButton.png"},
-        {"BossBattleButton", "assets/pictures/buttons/BossBattleButton.png"}
+        {"BossBattleButton", "assets/pictures/buttons/BossBattleButton.png"},
+        {"BonFireButton", "assets/pictures/buttons/BonFireButton.png"},
+        {"CityButton", "assets/pictures/buttons/CityButton.png"},
+        {"DungeonButton", "assets/pictures/buttons/DungeonButton.png"},
+        {"MysteryButton", "assets/pictures/buttons/MysteryButton.png"}
+
     };
 
     if (!texture.loadFromFile(texturePaths[type])) {
@@ -59,14 +64,34 @@ void Button::configureClickableArea(const std::string& type) {
         clickableArea = sf::FloatRect(pos.x, pos.y, 250, 150);
         label.setFillColor(sf::Color::White);
     } else if (type == "NormalBattleButton") {
-        sprite.setScale(0.18f, 0.18f);
+        sprite.setScale(0.19f, 0.18f);
         label.setCharacterSize(32);
-        clickableArea = sf::FloatRect(pos.x, pos.y, 250, 150);
+        clickableArea = sf::FloatRect(pos.x, pos.y + 40, 250, 110);
         label.setFillColor(sf::Color::White);
     } else if (type == "BossBattleButton") {
         sprite.setScale(0.2f, 0.2f);
         label.setCharacterSize(32);
-        clickableArea = sf::FloatRect(pos.x, pos.y, 250, 150);
+        clickableArea = sf::FloatRect(pos.x + 30, pos.y + 40, 220, 110);
+        label.setFillColor(sf::Color::White);
+    } else if (type == "BonFireButton") {
+        sprite.setScale(0.19f, 0.15f);
+        label.setCharacterSize(32);
+        clickableArea = sf::FloatRect(pos.x + 30, pos.y, 220, 150);
+        label.setFillColor(sf::Color::White);
+    } else if (type == "CityButton") {
+        sprite.setScale(0.17f, 0.15f);
+        label.setCharacterSize(32);
+        clickableArea = sf::FloatRect(pos.x, pos.y + 40, 250, 90);
+        label.setFillColor(sf::Color::White);
+    } else if (type == "DungeonButton") {
+        sprite.setScale(0.22f, 0.23f);
+        label.setCharacterSize(32);
+        clickableArea = sf::FloatRect(pos.x, pos.y + 40, 270, 130);
+        label.setFillColor(sf::Color::White);
+    } else if (type == "MysteryButton") {
+        sprite.setScale(0.18f, 0.20f);
+        label.setCharacterSize(32);
+        clickableArea = sf::FloatRect(pos.x, pos.y + 40, 260, 120);
         label.setFillColor(sf::Color::White);
     } else {
         clickableArea = sprite.getGlobalBounds();
