@@ -6,10 +6,12 @@ project(${project})
 set(CMAKE_CXX_STANDARD 17)
 
 set(${project}_SOURCES
-        levelGeneration.cpp)
+        levelGeneration.cpp
+        Tiles.cpp)
 
 set(${project}_HEADERS
-        levelGeneration.hpp)
+        levelGeneration.hpp
+        Tiles.hpp)
 
 set(${project}_SOURCE_LIST
         ${${project}_SOURCES}

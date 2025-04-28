@@ -130,6 +130,30 @@ LevelGeneration/fast:
 	cd /home/van/git/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f LevelGeneration/CMakeFiles/LevelGeneration.dir/build.make LevelGeneration/CMakeFiles/LevelGeneration.dir/build
 .PHONY : LevelGeneration/fast
 
+Tiles.o: Tiles.cpp.o
+.PHONY : Tiles.o
+
+# target to build an object file
+Tiles.cpp.o:
+	cd /home/van/git/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f LevelGeneration/CMakeFiles/LevelGeneration.dir/build.make LevelGeneration/CMakeFiles/LevelGeneration.dir/Tiles.cpp.o
+.PHONY : Tiles.cpp.o
+
+Tiles.i: Tiles.cpp.i
+.PHONY : Tiles.i
+
+# target to preprocess a source file
+Tiles.cpp.i:
+	cd /home/van/git/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f LevelGeneration/CMakeFiles/LevelGeneration.dir/build.make LevelGeneration/CMakeFiles/LevelGeneration.dir/Tiles.cpp.i
+.PHONY : Tiles.cpp.i
+
+Tiles.s: Tiles.cpp.s
+.PHONY : Tiles.s
+
+# target to generate assembly for a file
+Tiles.cpp.s:
+	cd /home/van/git/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f LevelGeneration/CMakeFiles/LevelGeneration.dir/build.make LevelGeneration/CMakeFiles/LevelGeneration.dir/Tiles.cpp.s
+.PHONY : Tiles.cpp.s
+
 levelGeneration.o: levelGeneration.cpp.o
 .PHONY : levelGeneration.o
 
@@ -163,6 +187,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... LevelGeneration"
+	@echo "... Tiles.o"
+	@echo "... Tiles.i"
+	@echo "... Tiles.s"
 	@echo "... levelGeneration.o"
 	@echo "... levelGeneration.i"
 	@echo "... levelGeneration.s"

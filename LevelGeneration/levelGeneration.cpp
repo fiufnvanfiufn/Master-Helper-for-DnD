@@ -31,17 +31,23 @@ void room::SetRoom() {
         Room = nullptr;
     }
 
-    Room = new char*[_roomWidth];
+    Room = new Tile**[_roomWidth];
     for (int i = 0; i < _roomWidth; ++i) {
-        Room[i] = new char[_roomLength];
+        Room[i] = new Tile*[_roomLength];
     }
 
     for (int i = 0; i < _roomWidth; ++i) {
         for (int j = 0; j < _roomLength; ++j) {
-            if (i == _roomWidth - 1 || i == 0 || j == 0 || j == _roomLength - 1) {
-                Room[i][j] = 'w';
+            if (i == _roomWidth - 1) {
+                Room[i][j] = &lowerWallTile;
+            } else if(i == 0) {
+                Room[i][j] = &upperWallTile;
+            } else if(j == _roomLength - 1) {
+                Room[i][j] = &rightWallTile;
+            } else if (j == 0){
+                Room[i][j] = &leftWallTile;
             } else {
-                Room[i][j] = 'f';
+                Room[i][j] = &floorTile;
             }
         }
     }
@@ -52,34 +58,36 @@ void room::PutTorchesInRoom() {
     int errorLeftWall = RandomGenerator::getRandomNumber(-1, 1);
 
     if (_numberOfTorchersRoom == 1) {
-        Room[_roomWidth / 2 + errorLeftWall - 1][1] = 't';
+        Room[_roomWidth / 2 + errorLeftWall - 1][1] = &leftTorchTile;
 
-        Room[_roomWidth / 2 + errorRigthWall - 1][_roomLength - 2] = 't';
+        Room[_roomWidth / 2 + errorRigthWall - 1][_roomLength - 2] = &rightTorchTile;
     }
 
     if (_numberOfTorchersRoom == 2) {
-        Room[_roomWidth / 3 + errorLeftWall - 1][1] = 't';
-        Room[_roomWidth / 3 * 2 + errorLeftWall - 1][1] = 't';
+        Room[_roomWidth / 3 + errorLeftWall - 1][1] = &leftTorchTile;
+        Room[_roomWidth / 3 * 2 + errorLeftWall - 1][1] = &leftTorchTile;
 
-        Room[_roomWidth / 3 + errorRigthWall - 1][_roomLength - 2] = 't';
-        Room[_roomWidth / 3 * 2 + errorRigthWall - 1][_roomLength - 2] = 't';
+        Room[_roomWidth / 3 + errorRigthWall - 1][_roomLength - 2] = &rightTorchTile;
+        Room[_roomWidth / 3 * 2 + errorRigthWall - 1][_roomLength - 2] = &rightTorchTile;
     }
 
     if (_numberOfTorchersRoom == 3) {
-        Room[_roomWidth / 2][1] = 't';
-        Room[_roomWidth / 4 + errorLeftWall][1] = 't';
-        Room[_roomWidth / 5 * 4 + errorLeftWall + 1][1] = 't';
+        Room[_roomWidth / 2][1] = &leftTorchTile;
+        Room[_roomWidth / 4 + errorLeftWall][1] = &leftTorchTile;
+        Room[_roomWidth / 5 * 4 + errorLeftWall + 1][1] = &leftTorchTile;
 
-        Room[_roomWidth / 2][_roomLength - 2] = 't';
-        Room[_roomWidth / 4 + errorRigthWall][_roomLength - 2] = 't';
-        Room[_roomWidth / 4 * 3 + errorRigthWall + 1][_roomLength - 2] = 't';
+        Room[_roomWidth / 2][_roomLength - 2] = &rightTorchTile;
+        Room[_roomWidth / 4 + errorRigthWall][_roomLength - 2] = &rightTorchTile;
+        Room[_roomWidth / 4 * 3 + errorRigthWall + 1][_roomLength - 2] = &rightTorchTile;
     }
 }
 
 void room::print() {
     for (int i = 0; i < _roomWidth; ++i) {
         for (int j = 0; j < _roomLength; ++j) {
-            std::cout << '[' << Room[i][j] << ']';
+            std::cout << '[';
+            Room[i][j]->Print();
+            std::cout  << ']';
         }
         std::cout << std::endl;
     }

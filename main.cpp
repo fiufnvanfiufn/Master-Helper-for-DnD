@@ -3,8 +3,8 @@
 int main(int, char**) {
     Director a;
 
-    SmallRoomBuilder largeRoomBuilder;
-    room* LargeRoom = a.CreateRoom(largeRoomBuilder);
+    LargeRoomBuilder LargeRoomBuilder;
+    room* LargeRoom = a.CreateRoom(LargeRoomBuilder);
 
     LargeRoom->print();
 }

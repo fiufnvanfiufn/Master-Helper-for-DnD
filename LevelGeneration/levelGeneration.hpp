@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Tiles.hpp"
 #include <iostream>
 #include <random>
 
@@ -18,7 +19,15 @@ private:
     int _roomLength = 0;
     int _roomWidth = 0;
     int _numberOfTorchersRoom = 0;
-    char** Room = nullptr;
+    Tile*** Room = nullptr;
+
+    FloorTile floorTile;
+    RightWallTile rightWallTile;
+    LeftWallTile leftWallTile;
+    UpperWallTile upperWallTile;
+    LowerWallTile lowerWallTile;
+    LeftTorchTile leftTorchTile;
+    RightTorchTile rightTorchTile;
 public:
     room() {}
 
