@@ -1,0 +1,2 @@
+/usr/bin/ar qc libLevelGeneration.a CMakeFiles/LevelGeneration.dir/levelGeneration.cpp.o CMakeFiles/LevelGeneration.dir/Tiles.cpp.o
+/usr/bin/ranlib libLevelGeneration.a

@@ -1,0 +1,6 @@
+/home/van/git/Master-Helper-for-DnD/build/CMakeFiles/test.dir
+/home/van/git/Master-Helper-for-DnD/build/CMakeFiles/edit_cache.dir
+/home/van/git/Master-Helper-for-DnD/build/CMakeFiles/rebuild_cache.dir
+/home/van/git/Master-Helper-for-DnD/build/LevelGeneration/CMakeFiles/LevelGeneration.dir
+/home/van/git/Master-Helper-for-DnD/build/LevelGeneration/CMakeFiles/edit_cache.dir
+/home/van/git/Master-Helper-for-DnD/build/LevelGeneration/CMakeFiles/rebuild_cache.dir
