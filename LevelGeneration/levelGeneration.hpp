@@ -3,6 +3,7 @@
 #include "Tiles.hpp"
 #include <iostream>
 #include <random>
+#include <vector>
 
 class RandomGenerator {
 public:
@@ -19,7 +20,7 @@ private:
     int _roomLength = 0;
     int _roomWidth = 0;
     int _numberOfTorchersRoom = 0;
-    Tile*** Room = nullptr;
+    std::vector<std::vector<Tile*>> Room;
 
     FloorTile floorTile;
     RightWallTile rightWallTile;

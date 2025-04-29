@@ -23,14 +23,6 @@ void room::SetTorchesInRoom(int numberOfTorchersRoom) {
 }
 
 void room::SetRoom() {
-    if (Room != nullptr) {
-        for (int i = 0; i < _roomWidth; ++i) {
-            delete[] Room[i];
-        }
-        delete[] Room;
-        Room = nullptr;
-    }
-
     Room = new Tile**[_roomWidth];
     for (int i = 0; i < _roomWidth; ++i) {
         Room[i] = new Tile*[_roomLength];
