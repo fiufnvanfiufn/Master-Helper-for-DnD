@@ -28,16 +28,24 @@ void room::SetRoom() {
     }
     for (int i = 0; i < _roomWidth; ++i) {
         for (int j = 0; j < _roomLength; ++j) {
-            if (i == _roomWidth - 1) {
+            if (i == _roomWidth - 1 && j != 0 && j != _roomLength - 1) {
                 Room[i][j] = new LowerWallTile;
-            } else if(i == 0) {
+            } else if(i == 0 && j != 0 && j != _roomWidth - 1) {
                 Room[i][j] = new UpperWallTile;
-            } else if(j == _roomLength - 1) {
+            } else if(j == _roomLength - 1 && i != 0 && i != _roomWidth - 1) {
                 Room[i][j] = new RightWallTile;
-            } else if (j == 0){
+            } else if (j == 0 && i != 0 && i != _roomWidth - 1){
                 Room[i][j] = new LeftWallTile;
-            } else {
+            } else if (i == 0 && j != 0 && j != _roomLength - 1) {
                 Room[i][j] = new FloorTile;
+            } else if (i == _roomWidth - 1 && j == 0) {
+                Room[i][j] = new LeftLowerWallCorner;
+            } else if (i == 0 && j == 0) {
+                Room[i][j] = new LeftUpperWallCorner;
+            } else if (i == 0 && j == _roomLength - 1) {
+                Room[i][j] = new RightUpperWallCorner;
+            } else if (i == _roomWidth - 1 && j == _roomLength - 1) {
+                Room[i][j] = new RightLowerWallCorner;
             }
         }
     }

@@ -129,3 +129,55 @@ public:
 
     ~LowerTorchTile() {}
 };
+
+class RightUpperWallCorner : public Tile {
+private:
+
+public:
+    void Print() override {
+        std::cout << "bt";
+    }
+
+    RightUpperWallCorner() {}
+
+    ~RightUpperWallCorner() {}
+};
+
+class LeftUpperWallCorner : public Tile {
+private:
+
+public:
+    void Print() override {
+        std::cout << "bt";
+    }
+
+    LeftUpperWallCorner() {}
+
+    ~LeftUpperWallCorner() {}
+};
+
+class RightLowerWallCorner : public Tile {
+private:
+
+public:
+    void Print() override {
+        std::cout << "bt";
+    }
+
+    RightLowerWallCorner() {}
+
+    ~RightLowerWallCorner() {}
+};
+
+class LeftLowerWallCorner : public Tile {
+private:
+
+public:
+    void Print() override {
+        std::cout << "bt";
+    }
+
+    LeftLowerWallCorner() {}
+
+    ~LeftLowerWallCorner() {}
+};
