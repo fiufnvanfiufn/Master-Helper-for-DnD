@@ -1,2 +1,2 @@
 # Master-Helper-for-DnD
-Universite project for DnD masters
+Universal project for DnD masters
