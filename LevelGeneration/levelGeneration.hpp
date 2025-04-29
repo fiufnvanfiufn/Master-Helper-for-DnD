@@ -22,13 +22,6 @@ private:
     int _numberOfTorchersRoom = 0;
     std::vector<std::vector<Tile*>> Room;
 
-    FloorTile floorTile;
-    RightWallTile rightWallTile;
-    LeftWallTile leftWallTile;
-    UpperWallTile upperWallTile;
-    LowerWallTile lowerWallTile;
-    LeftTorchTile leftTorchTile;
-    RightTorchTile rightTorchTile;
 public:
     room() {}
 

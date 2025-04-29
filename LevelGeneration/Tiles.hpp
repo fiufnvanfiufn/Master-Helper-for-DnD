@@ -33,6 +33,7 @@ public:
     void Print() override {
         std::cout << "rw";
     }
+
     RightWallTile() {}
 
     ~RightWallTile() {}
@@ -71,6 +72,7 @@ public:
     void Print() override {
         std::cout << "bw";
     }
+
     LowerWallTile() {}
 
     ~LowerWallTile() {}
@@ -96,6 +98,7 @@ public:
     void Print() override {
         std::cout << "lt";
     }
+
     LeftTorchTile() {}
 
     ~LeftTorchTile() {}
@@ -108,6 +111,7 @@ public:
     void Print() override {
         std::cout << "ut";
     }
+
     UpperTorchTile() {}
 
     ~UpperTorchTile() {}
@@ -120,6 +124,7 @@ public:
     void Print() override {
         std::cout << "bt";
     }
+
     LowerTorchTile() {}
 
     ~LowerTorchTile() {}
