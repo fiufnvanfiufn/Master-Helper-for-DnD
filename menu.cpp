@@ -5,6 +5,7 @@
 #include "soundPad.hpp"
 #include "button/button.hpp"
 #include "musicPanel.hpp"
+#include "levelGenerator.hpp"
 
 int runMainMenu(sf::Font& font) {
     sf::RenderWindow menu(sf::VideoMode(1920, 1080), L"Меню");
@@ -19,6 +20,8 @@ int runMainMenu(sf::Font& font) {
 
     button::Button soundPadOpenButton(50, 600, "DragonButton", L"Саундпад", font);
     button::Button musicPanelOpenButton(450, 600, "DragonButton", L"Музыкальная панель", font);
+    button::Button levelGeneratorOpenButton(850, 600, "DragonButton", L"Генератор комнат", font);
+
 
     while (menu.isOpen()) {
         sf::Event event;
@@ -38,6 +41,11 @@ int runMainMenu(sf::Font& font) {
                         runMusicPanel(font);
                     });
                     musicPanelThread.detach();
+                } else if (levelGeneratorOpenButton.isClicked(mousePos)) {
+                    std::thread levelGeneratorThread([&font]() {
+                        RunLevelGenerator(font);
+                    });
+                    levelGeneratorThread.detach();
                 }
             }
         }
@@ -45,11 +53,13 @@ int runMainMenu(sf::Font& font) {
         sf::Vector2i mouse = sf::Mouse::getPosition(menu);
         soundPadOpenButton.update(sf::Vector2f(mouse));
         musicPanelOpenButton.update(sf::Vector2f(mouse));
+        levelGeneratorOpenButton.update(sf::Vector2f(mouse));
 
         menu.clear();
         menu.draw(background);
         musicPanelOpenButton.draw(menu);
         soundPadOpenButton.draw(menu);
+        levelGeneratorOpenButton.draw(menu);
         menu.display();
     }
     return 0;
