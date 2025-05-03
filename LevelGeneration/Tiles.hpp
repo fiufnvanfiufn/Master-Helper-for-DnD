@@ -13,8 +13,6 @@ public:
     Tile() {}
     virtual ~Tile() {}
 
-    virtual void Print() = 0;
-
     void setPosition(float x, float y) {
         position = {x, y};
         sprite.setPosition(position);
@@ -42,7 +40,7 @@ public:
         sprite.setScale(TILE_SIZE / texture.getSize().x, TILE_SIZE / texture.getSize().y);
         setPosition(x, y);
     }
-    void Print() override { std::cout << "f "; }
+
 };
 
 class RightWallTile : public Tile {
@@ -58,7 +56,7 @@ public:
         sprite.setScale(TILE_SIZE / texture.getSize().x, TILE_SIZE / texture.getSize().y);
         setPosition(x, y);
     }
-    void Print() override { std::cout << "rw"; }
+
 };
 
 class LeftWallTile : public Tile {
@@ -74,7 +72,7 @@ public:
         sprite.setScale(TILE_SIZE / texture.getSize().x, TILE_SIZE / texture.getSize().y);
         setPosition(x, y);
     }
-    void Print() override { std::cout << "lw"; }
+
 };
 
 class UpperWallTile : public Tile {
@@ -90,7 +88,7 @@ public:
         sprite.setScale(TILE_SIZE / texture.getSize().x, TILE_SIZE / texture.getSize().y);
         setPosition(x, y);
     }
-    void Print() override { std::cout << "uw"; }
+
 };
 
 class LowerWallTile : public Tile {
@@ -106,7 +104,7 @@ public:
         sprite.setScale(TILE_SIZE / texture.getSize().x, TILE_SIZE / texture.getSize().y);
         setPosition(x, y);
     }
-    void Print() override { std::cout << "bw"; }
+
 };
 
 class RightTorchTile : public Tile {
@@ -122,7 +120,7 @@ public:
         sprite.setScale(TILE_SIZE / texture.getSize().x, TILE_SIZE / texture.getSize().y);
         setPosition(x, y);
     }
-    void Print() override { std::cout << "rt"; }
+
 };
 
 class LeftTorchTile : public Tile {
@@ -138,7 +136,7 @@ public:
         sprite.setScale(TILE_SIZE / texture.getSize().x, TILE_SIZE / texture.getSize().y);
         setPosition(x, y);
     }
-    void Print() override { std::cout << "lt"; }
+
 };
 
 class UpperTorchTile : public Tile {
@@ -154,7 +152,7 @@ public:
         sprite.setScale(TILE_SIZE / texture.getSize().x, TILE_SIZE / texture.getSize().y);
         setPosition(x, y);
     }
-    void Print() override { std::cout << "ut"; }
+
 };
 
 class LowerTorchTile : public Tile {
@@ -170,5 +168,41 @@ public:
         sprite.setScale(TILE_SIZE / texture.getSize().x, TILE_SIZE / texture.getSize().y);
         setPosition(x, y);
     }
-    void Print() override { std::cout << "bt"; }
+};
+
+class RightUpperWallCorner : public Tile {
+private:
+
+public:
+    RightUpperWallCorner() {}
+
+    ~RightUpperWallCorner() {}
+};
+
+class LeftUpperWallCorner : public Tile {
+private:
+
+public:
+    LeftUpperWallCorner() {}
+
+    ~LeftUpperWallCorner() {}
+};
+
+class RightLowerWallCorner : public Tile {
+private:
+
+public:
+    RightLowerWallCorner() {}
+
+    ~RightLowerWallCorner() {}
+};
+
+class LeftLowerWallCorner : public Tile {
+private:
+
+public:
+
+    LeftLowerWallCorner() {}
+
+    ~LeftLowerWallCorner() {}
 };

@@ -41,16 +41,24 @@ void room::SetRoom() {
         for (int j = 0; j < _roomLength; ++j) {
             float x = j * TILE_SIZE;
             float y = i * TILE_SIZE;
-            if (i == _roomWidth - 1) {
-                Room[i][j] = new LowerWallTile(x, y);
-            } else if (i == 0) {
-                Room[i][j] = new UpperWallTile(x, y);
-            } else if (j == _roomLength - 1) {
-                Room[i][j] = new RightWallTile(x, y);
-            } else if (j == 0) {
-                Room[i][j] = new LeftWallTile(x, y);
-            } else {
-                Room[i][j] = new FloorTile(x, y);
+            if (i == _roomWidth - 1 && j != 0 && j != _roomLength - 1) {
+                Room[i][j] = new LowerWallTile;
+            } else if(i == 0 && j != 0 && j != _roomWidth - 1) {
+                Room[i][j] = new UpperWallTile;
+            } else if(j == _roomLength - 1 && i != 0 && i != _roomWidth - 1) {
+                Room[i][j] = new RightWallTile;
+            } else if (j == 0 && i != 0 && i != _roomWidth - 1){
+                Room[i][j] = new LeftWallTile;
+            } else if (i == 0 && j != 0 && j != _roomLength - 1) {
+                Room[i][j] = new FloorTile;
+            } else if (i == _roomWidth - 1 && j == 0) {
+                Room[i][j] = new LeftLowerWallCorner;
+            } else if (i == 0 && j == 0) {
+                Room[i][j] = new LeftUpperWallCorner;
+            } else if (i == 0 && j == _roomLength - 1) {
+                Room[i][j] = new RightUpperWallCorner;
+            } else if (i == _roomWidth - 1 && j == _roomLength - 1) {
+                Room[i][j] = new RightLowerWallCorner;
             }
         }
     }
@@ -86,23 +94,11 @@ void room::PutTorchesInRoom() {
     if (_numberOfTorchersRoom == 3) {
         placeLeftTorch(_roomWidth / 2);
         placeLeftTorch(_roomWidth / 4 + errorLeftWall);
-        placeLeftTorch(_roomWidth / 5 * 4 + errorLeftWall + 1);
+        placeLeftTorch(_roomWidth / 4 * 3 + errorLeftWall + 1);
         placeRightTorch(_roomWidth / 2);
         placeRightTorch(_roomWidth / 4 + errorRigthWall);
         placeRightTorch(_roomWidth / 4 * 3 + errorRigthWall + 1);
     }
-}
-
-void room::print() {
-    for (int i = 0; i < _roomWidth; ++i) {
-        for (int j = 0; j < _roomLength; ++j) {
-            std::cout << '[';
-            Room[i][j]->Print();
-            std::cout << ']';
-        }
-        std::cout << std::endl;
-    }
-    std::cout << std::endl;
 }
 
 RoomBuilder::RoomBuilder() {
