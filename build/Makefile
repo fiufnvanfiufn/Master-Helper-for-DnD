@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/van/git/Master-Helper-for-DnD
+CMAKE_SOURCE_DIR = /home/sans2114/Master-Helper-for-DnD
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/van/git/Master-Helper-for-DnD/build
+CMAKE_BINARY_DIR = /home/sans2114/Master-Helper-for-DnD/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/van/git/Master-Helper-for-DnD/build/CMakeFiles /home/van/git/Master-Helper-for-DnD/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sans2114/Master-Helper-for-DnD/build/CMakeFiles /home/sans2114/Master-Helper-for-DnD/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/van/git/Master-Helper-for-DnD/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sans2114/Master-Helper-for-DnD/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -117,17 +117,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named test
+# Target rules for targets named MasterHelper
 
 # Build rule for target.
-test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test
-.PHONY : test
+MasterHelper: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MasterHelper
+.PHONY : MasterHelper
 
 # fast build rule for target.
-test/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
-.PHONY : test/fast
+MasterHelper/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MasterHelper.dir/build.make CMakeFiles/MasterHelper.dir/build
+.PHONY : MasterHelper/fast
+
+#=============================================================================
+# Target rules for targets named button
+
+# Build rule for target.
+button: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 button
+.PHONY : button
+
+# fast build rule for target.
+button/fast:
+	$(MAKE) $(MAKESILENT) -f button/CMakeFiles/button.dir/build.make button/CMakeFiles/button.dir/build
+.PHONY : button/fast
 
 #=============================================================================
 # Target rules for targets named LevelGeneration
@@ -142,12 +155,36 @@ LevelGeneration/fast:
 	$(MAKE) $(MAKESILENT) -f LevelGeneration/CMakeFiles/LevelGeneration.dir/build.make LevelGeneration/CMakeFiles/LevelGeneration.dir/build
 .PHONY : LevelGeneration/fast
 
+levelGenerator.o: levelGenerator.cpp.o
+.PHONY : levelGenerator.o
+
+# target to build an object file
+levelGenerator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MasterHelper.dir/build.make CMakeFiles/MasterHelper.dir/levelGenerator.cpp.o
+.PHONY : levelGenerator.cpp.o
+
+levelGenerator.i: levelGenerator.cpp.i
+.PHONY : levelGenerator.i
+
+# target to preprocess a source file
+levelGenerator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MasterHelper.dir/build.make CMakeFiles/MasterHelper.dir/levelGenerator.cpp.i
+.PHONY : levelGenerator.cpp.i
+
+levelGenerator.s: levelGenerator.cpp.s
+.PHONY : levelGenerator.s
+
+# target to generate assembly for a file
+levelGenerator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MasterHelper.dir/build.make CMakeFiles/MasterHelper.dir/levelGenerator.cpp.s
+.PHONY : levelGenerator.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MasterHelper.dir/build.make CMakeFiles/MasterHelper.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -155,7 +192,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MasterHelper.dir/build.make CMakeFiles/MasterHelper.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -163,8 +200,80 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MasterHelper.dir/build.make CMakeFiles/MasterHelper.dir/main.cpp.s
 .PHONY : main.cpp.s
+
+menu.o: menu.cpp.o
+.PHONY : menu.o
+
+# target to build an object file
+menu.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MasterHelper.dir/build.make CMakeFiles/MasterHelper.dir/menu.cpp.o
+.PHONY : menu.cpp.o
+
+menu.i: menu.cpp.i
+.PHONY : menu.i
+
+# target to preprocess a source file
+menu.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MasterHelper.dir/build.make CMakeFiles/MasterHelper.dir/menu.cpp.i
+.PHONY : menu.cpp.i
+
+menu.s: menu.cpp.s
+.PHONY : menu.s
+
+# target to generate assembly for a file
+menu.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MasterHelper.dir/build.make CMakeFiles/MasterHelper.dir/menu.cpp.s
+.PHONY : menu.cpp.s
+
+musicPanel.o: musicPanel.cpp.o
+.PHONY : musicPanel.o
+
+# target to build an object file
+musicPanel.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MasterHelper.dir/build.make CMakeFiles/MasterHelper.dir/musicPanel.cpp.o
+.PHONY : musicPanel.cpp.o
+
+musicPanel.i: musicPanel.cpp.i
+.PHONY : musicPanel.i
+
+# target to preprocess a source file
+musicPanel.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MasterHelper.dir/build.make CMakeFiles/MasterHelper.dir/musicPanel.cpp.i
+.PHONY : musicPanel.cpp.i
+
+musicPanel.s: musicPanel.cpp.s
+.PHONY : musicPanel.s
+
+# target to generate assembly for a file
+musicPanel.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MasterHelper.dir/build.make CMakeFiles/MasterHelper.dir/musicPanel.cpp.s
+.PHONY : musicPanel.cpp.s
+
+soundPad.o: soundPad.cpp.o
+.PHONY : soundPad.o
+
+# target to build an object file
+soundPad.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MasterHelper.dir/build.make CMakeFiles/MasterHelper.dir/soundPad.cpp.o
+.PHONY : soundPad.cpp.o
+
+soundPad.i: soundPad.cpp.i
+.PHONY : soundPad.i
+
+# target to preprocess a source file
+soundPad.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MasterHelper.dir/build.make CMakeFiles/MasterHelper.dir/soundPad.cpp.i
+.PHONY : soundPad.cpp.i
+
+soundPad.s: soundPad.cpp.s
+.PHONY : soundPad.s
+
+# target to generate assembly for a file
+soundPad.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MasterHelper.dir/build.make CMakeFiles/MasterHelper.dir/soundPad.cpp.s
+.PHONY : soundPad.cpp.s
 
 # Help Target
 help:
@@ -175,10 +284,23 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... LevelGeneration"
-	@echo "... test"
+	@echo "... MasterHelper"
+	@echo "... button"
+	@echo "... levelGenerator.o"
+	@echo "... levelGenerator.i"
+	@echo "... levelGenerator.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... menu.o"
+	@echo "... menu.i"
+	@echo "... menu.s"
+	@echo "... musicPanel.o"
+	@echo "... musicPanel.i"
+	@echo "... musicPanel.s"
+	@echo "... soundPad.o"
+	@echo "... soundPad.i"
+	@echo "... soundPad.s"
 .PHONY : help
 
 

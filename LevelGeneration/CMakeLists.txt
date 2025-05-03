@@ -1,22 +1,21 @@
-cmake_minimum_required(VERSION 3.23)
+cmake_minimum_required(VERSION 3.20)
 
-set(project "LevelGeneration")
-project(${project})
+project(LevelGeneration)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 
-set(${project}_SOURCES
-        levelGeneration.cpp
-        Tiles.cpp)
+set(SOURCES
+    levelGeneration.cpp
+)
 
-set(${project}_HEADERS
-        levelGeneration.hpp
-        Tiles.hpp)
+set(HEADERS
+    levelGeneration.hpp
+    Tiles.hpp
+)
 
-set(${project}_SOURCE_LIST
-        ${${project}_SOURCES}
-        ${${project}_HEADERS})
+add_library(LevelGeneration STATIC ${SOURCES} ${HEADERS})
 
-add_library(${project}
-        STATIC
-        ${${project}_SOURCE_LIST})
+find_package(SFML 2.5 COMPONENTS graphics REQUIRED)
+target_link_libraries(LevelGeneration PUBLIC sfml-graphics)
+
+target_include_directories(LevelGeneration PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

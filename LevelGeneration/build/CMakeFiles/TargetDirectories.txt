@@ -1,2 +1,0 @@
-/home/van/git/Master-Helper-for-DnD/LevelGeneration/build/CMakeFiles/edit_cache.dir
-/home/van/git/Master-Helper-for-DnD/LevelGeneration/build/CMakeFiles/rebuild_cache.dir

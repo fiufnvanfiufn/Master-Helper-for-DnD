@@ -1,23 +1,21 @@
 cmake_minimum_required(VERSION 3.20)
 
-set(project "button")
-project(${project})
+project(button)
 
 set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-set(${project}_SOURCES
-        button.cpp)
+set(SOURCES
+    button.cpp
+)
 
-set(${project}_HEADERS
-        button.hpp)
+set(HEADERS
+    button.hpp
+)
 
-set(${project}_SOURCE_LIST
-        ${${project}_SOURCES}
-        ${${project}_HEADERS})
-
-add_library(${project}
-        STATIC
-        ${${project}_SOURCE_LIST})
+add_library(button STATIC ${SOURCES} ${HEADERS})
 
 find_package(SFML 2.5 COMPONENTS graphics REQUIRED)
 target_link_libraries(button PUBLIC sfml-graphics)
+
+target_include_directories(button PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

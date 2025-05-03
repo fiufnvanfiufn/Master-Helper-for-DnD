@@ -5,7 +5,7 @@
 
 class Tile {
 protected:
-    sf::Texture texture;
+    static constexpr float TILE_SIZE = 64.f;
     sf::Sprite sprite;
     sf::Vector2f position;
 
@@ -18,7 +18,11 @@ public:
     void setPosition(float x, float y) {
         position = {x, y};
         sprite.setPosition(position);
-    }
+        if (sprite.getTexture()) {
+            sprite.setScale(TILE_SIZE / sprite.getTexture()->getSize().x,
+                            TILE_SIZE / sprite.getTexture()->getSize().y);
+            }
+        }
 
     virtual void draw(sf::RenderWindow& window) {
         window.draw(sprite);
@@ -26,154 +30,145 @@ public:
 };
 
 class FloorTile : public Tile {
+    static sf::Texture texture;
 public:
     FloorTile(float x = 0.f, float y = 0.f) {
-        if (!texture.loadFromFile("assets/pictures/tiles/floor.png")) {
+        if (texture.getSize().x == 0 &&
+            !texture.loadFromFile("assets/pictures/tiles/floor.png"))
+        {
             std::cerr << "Ошибка загрузки floor.png\n";
         }
         sprite.setTexture(texture);
+        sprite.setScale(TILE_SIZE / texture.getSize().x, TILE_SIZE / texture.getSize().y);
         setPosition(x, y);
     }
-
-    void Print() override {
-        std::cout << "f ";
-    }
-
-    ~FloorTile() {}
+    void Print() override { std::cout << "f "; }
 };
 
 class RightWallTile : public Tile {
+    static sf::Texture texture;
 public:
     RightWallTile(float x = 0.f, float y = 0.f) {
-        if (!texture.loadFromFile("assets/pictures/tiles/right_wall.png")) {
-            std::cerr << "Ошибка загрузки right_wall.png\n";
+        if (texture.getSize().x == 0 &&
+            !texture.loadFromFile("assets/pictures/tiles/rightWall.png"))
+        {
+            std::cerr << "Ошибка загрузки rightWall.png\n";
         }
         sprite.setTexture(texture);
+        sprite.setScale(TILE_SIZE / texture.getSize().x, TILE_SIZE / texture.getSize().y);
         setPosition(x, y);
     }
-
-    void Print() override {
-        std::cout << "rw";
-    }
-
-    ~RightWallTile() {}
+    void Print() override { std::cout << "rw"; }
 };
 
 class LeftWallTile : public Tile {
+    static sf::Texture texture;
 public:
     LeftWallTile(float x = 0.f, float y = 0.f) {
-        if (!texture.loadFromFile("assets/pictures/tiles/left_wall.png")) {
-            std::cerr << "Ошибка загрузки left_wall.png\n";
+        if (texture.getSize().x == 0 &&
+            !texture.loadFromFile("assets/pictures/tiles/leftWall.png"))
+        {
+            std::cerr << "Ошибка загрузки leftWall.png\n";
         }
         sprite.setTexture(texture);
+        sprite.setScale(TILE_SIZE / texture.getSize().x, TILE_SIZE / texture.getSize().y);
         setPosition(x, y);
     }
-
-    void Print() override {
-        std::cout << "lw";
-    }
-
-    ~LeftWallTile() {}
+    void Print() override { std::cout << "lw"; }
 };
 
 class UpperWallTile : public Tile {
+    static sf::Texture texture;
 public:
     UpperWallTile(float x = 0.f, float y = 0.f) {
-        if (!texture.loadFromFile("assets/pictures/tiles/upper_wall.png")) {
-            std::cerr << "Ошибка загрузки upper_wall.png\n";
+        if (texture.getSize().x == 0 &&
+            !texture.loadFromFile("assets/pictures/tiles/upperWall.png"))
+        {
+            std::cerr << "Ошибка загрузки upperWall.png\n";
         }
         sprite.setTexture(texture);
+        sprite.setScale(TILE_SIZE / texture.getSize().x, TILE_SIZE / texture.getSize().y);
         setPosition(x, y);
     }
-
-    void Print() override {
-        std::cout << "uw";
-    }
-
-    ~UpperWallTile() {}
+    void Print() override { std::cout << "uw"; }
 };
 
 class LowerWallTile : public Tile {
+    static sf::Texture texture;
 public:
     LowerWallTile(float x = 0.f, float y = 0.f) {
-        if (!texture.loadFromFile("assets/pictures/tiles/lower_wall.png")) {
-            std::cerr << "Ошибка загрузки lower_wall.png\n";
+        if (texture.getSize().x == 0 &&
+            !texture.loadFromFile("assets/pictures/tiles/lowerWall.png"))
+        {
+            std::cerr << "Ошибка загрузки lowerWall.png\n";
         }
         sprite.setTexture(texture);
+        sprite.setScale(TILE_SIZE / texture.getSize().x, TILE_SIZE / texture.getSize().y);
         setPosition(x, y);
     }
-
-    void Print() override {
-        std::cout << "bw";
-    }
-
-    ~LowerWallTile() {}
+    void Print() override { std::cout << "bw"; }
 };
 
 class RightTorchTile : public Tile {
+    static sf::Texture texture;
 public:
     RightTorchTile(float x = 0.f, float y = 0.f) {
-        if (!texture.loadFromFile("assets/pictures/tiles/right_torch.png")) {
-            std::cerr << "Ошибка загрузки right_torch.png\n";
+        if (texture.getSize().x == 0 &&
+            !texture.loadFromFile("assets/pictures/tiles/rightTorch.png"))
+        {
+            std::cerr << "Ошибка загрузки rightTorch.png\n";
         }
         sprite.setTexture(texture);
+        sprite.setScale(TILE_SIZE / texture.getSize().x, TILE_SIZE / texture.getSize().y);
         setPosition(x, y);
     }
-
-    void Print() override {
-        std::cout << "rt";
-    }
-
-    ~RightTorchTile() {}
+    void Print() override { std::cout << "rt"; }
 };
 
 class LeftTorchTile : public Tile {
+    static sf::Texture texture;
 public:
     LeftTorchTile(float x = 0.f, float y = 0.f) {
-        if (!texture.loadFromFile("assets/pictures/tiles/left_torch.png")) {
-            std::cerr << "Ошибка загрузки left_torch.png\n";
+        if (texture.getSize().x == 0 &&
+            !texture.loadFromFile("assets/pictures/tiles/leftTorch.png"))
+        {
+            std::cerr << "Ошибка загрузки leftTorch.png\n";
         }
         sprite.setTexture(texture);
+        sprite.setScale(TILE_SIZE / texture.getSize().x, TILE_SIZE / texture.getSize().y);
         setPosition(x, y);
     }
-
-    void Print() override {
-        std::cout << "lt";
-    }
-
-    ~LeftTorchTile() {}
+    void Print() override { std::cout << "lt"; }
 };
 
 class UpperTorchTile : public Tile {
+    static sf::Texture texture;
 public:
     UpperTorchTile(float x = 0.f, float y = 0.f) {
-        if (!texture.loadFromFile("assets/pictures/tiles/upper_torch.png")) {
-            std::cerr << "Ошибка загрузки upper_torch.png\n";
+        if (texture.getSize().x == 0 &&
+            !texture.loadFromFile("assets/pictures/tiles/upperTorch.png"))
+        {
+            std::cerr << "Ошибка загрузки upperTorch.png\n";
         }
         sprite.setTexture(texture);
+        sprite.setScale(TILE_SIZE / texture.getSize().x, TILE_SIZE / texture.getSize().y);
         setPosition(x, y);
     }
-
-    void Print() override {
-        std::cout << "ut";
-    }
-
-    ~UpperTorchTile() {}
+    void Print() override { std::cout << "ut"; }
 };
 
 class LowerTorchTile : public Tile {
+    static sf::Texture texture;
 public:
     LowerTorchTile(float x = 0.f, float y = 0.f) {
-        if (!texture.loadFromFile("assets/pictures/tiles/lower_torch.png")) {
-            std::cerr << "Ошибка загрузки lower_torch.png\n";
+        if (texture.getSize().x == 0 &&
+            !texture.loadFromFile("assets/pictures/tiles/lowerTorch.png"))
+        {
+            std::cerr << "Ошибка загрузки lowerTorch.png\n";
         }
         sprite.setTexture(texture);
+        sprite.setScale(TILE_SIZE / texture.getSize().x, TILE_SIZE / texture.getSize().y);
         setPosition(x, y);
     }
-
-    void Print() override {
-        std::cout << "bt";
-    }
-
-    ~LowerTorchTile() {}
+    void Print() override { std::cout << "bt"; }
 };

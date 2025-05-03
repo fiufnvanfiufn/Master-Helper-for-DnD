@@ -27,6 +27,8 @@ public:
 
     ~room();
 
+    void draw(sf::RenderWindow& window);
+
     void SetRoomWidth(int roomWidth);
 
     void SetRoomLength(int roomLength);
@@ -47,7 +49,7 @@ public:
     RoomBuilder();
 
     virtual ~RoomBuilder() {
-        delete ex;
+        // delete ex;
     }
 
     virtual void SetRoomLength() = 0;
@@ -60,7 +62,9 @@ public:
 class SmallRoomBuilder : public RoomBuilder {
 public:
     void SetRoomLength() override {
-        ex->SetRoomLength(RandomGenerator::getRandomNumber(4, 7));
+        int length = RandomGenerator::getRandomNumber(4, 7);
+        std::cout << "Generated length: " << length << "\n";
+        ex->SetRoomLength(length);
     }
 
     void SetRoomWidth() override {

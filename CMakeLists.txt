@@ -1,11 +1,10 @@
-<<<<<<< HEAD
 cmake_minimum_required(VERSION 3.20)
 project(MasterHelper)
 
 set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_subdirectory(button)
+add_subdirectory(LevelGeneration)
 
 find_package(SFML 2.5 COMPONENTS graphics window system audio REQUIRED)
 
@@ -14,11 +13,13 @@ add_executable(MasterHelper
     menu.cpp
     soundPad.cpp
     musicPanel.cpp
+    levelGenerator.cpp
 )
 
 target_link_libraries(MasterHelper
     PRIVATE
         button
+        LevelGeneration
         sfml-graphics
         sfml-window
         sfml-system

@@ -12,6 +12,3 @@ int main() {
 
     return runMainMenu(font);
 }
-
-int main(int, char**) {
-}
