@@ -42,15 +42,15 @@ void room::SetRoom() {
             float x = j * TILE_SIZE;
             float y = i * TILE_SIZE;
             if (i == _roomWidth - 1 && j != 0 && j != _roomLength - 1) {
-                Room[i][j] = new LowerWallTile;
+                Room[i][j] = new LowerWallTile(x, y);
             } else if(i == 0 && j != 0 && j != _roomWidth - 1) {
-                Room[i][j] = new UpperWallTile;
+                Room[i][j] = new UpperWallTile(x, y);
             } else if(j == _roomLength - 1 && i != 0 && i != _roomWidth - 1) {
-                Room[i][j] = new RightWallTile;
+                Room[i][j] = new RightWallTile(x, y);
             } else if (j == 0 && i != 0 && i != _roomWidth - 1){
-                Room[i][j] = new LeftWallTile;
+                Room[i][j] = new LeftWallTile(x, y);
             } else if (i == 0 && j != 0 && j != _roomLength - 1) {
-                Room[i][j] = new FloorTile;
+                Room[i][j] = new FloorTile(x, y);
             } else if (i == _roomWidth - 1 && j == 0) {
                 Room[i][j] = new LeftLowerWallCorner;
             } else if (i == 0 && j == 0) {
