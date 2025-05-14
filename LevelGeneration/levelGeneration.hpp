@@ -21,7 +21,7 @@ private:
     int _roomWidth = 0;
     int _numberOfTorchersRoom = 0;
     std::vector<std::vector<Tile*>> Room;
-
+    bool IsColumnsInRoom = false;
 public:
     room() {}
 
@@ -39,7 +39,7 @@ public:
 
     void PutTorchesInRoom();
 
-    void print();
+    void PutColumnsInRoom();
 };
 
 class RoomBuilder {

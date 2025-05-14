@@ -206,3 +206,13 @@ public:
 
     ~LeftLowerWallCorner() {}
 };
+
+class Column : public Tile {
+private:
+
+public:
+
+    Column() {}
+
+    ~Column() {}
+};

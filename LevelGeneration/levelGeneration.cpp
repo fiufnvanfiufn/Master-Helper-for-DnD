@@ -101,6 +101,10 @@ void room::PutTorchesInRoom() {
     }
 }
 
+void room::PutColumnsInRoom() {
+
+}
+
 RoomBuilder::RoomBuilder() {
     ex = new room();
 }
