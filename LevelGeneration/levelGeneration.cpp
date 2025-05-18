@@ -9,12 +9,6 @@ sf::Texture RightTorchTile::texture;
 sf::Texture LeftTorchTile::texture;
 sf::Texture UpperTorchTile::texture;
 sf::Texture LowerTorchTile::texture;
-sf::Texture RightUpperWallCorner::texture;
-sf::Texture LeftUpperWallCorner::texture;
-sf::Texture RightLowerWallCorner::texture;
-sf::Texture LeftLowerWallCorner::texture;
-sf::Texture Column::texture;
-
 
 room::~room() {
     for (int i = 0; i < _roomWidth; ++i) {
@@ -47,24 +41,27 @@ void room::SetRoom() {
         for (int j = 0; j < _roomLength; ++j) {
             float x = j * TILE_SIZE;
             float y = i * TILE_SIZE;
+            if (Room[i][j] != nullptr) {
+                    delete Room[i][j];
+            }
             if (i == _roomWidth - 1 && j != 0 && j != _roomLength - 1) {
                 Room[i][j] = new LowerWallTile(x, y);
-            } else if(i == 0 && j != 0 && j != _roomWidth - 1) {
+            } else if(i == 0 && j != 0 && j != _roomLength - 1) {
                 Room[i][j] = new UpperWallTile(x, y);
             } else if(j == _roomLength - 1 && i != 0 && i != _roomWidth - 1) {
                 Room[i][j] = new RightWallTile(x, y);
             } else if (j == 0 && i != 0 && i != _roomWidth - 1){
                 Room[i][j] = new LeftWallTile(x, y);
-            } else if (i == 0 && j != 0 && j != _roomLength - 1) {
-                Room[i][j] = new FloorTile(x, y);
-            } else if (i == _roomWidth - 1 && j == 0) {
-                Room[i][j] = new LeftLowerWallCorner(x,y);
+            }  else if (i == _roomWidth - 1 && j == 0) {
+                Room[i][j] = new LeftLowerWallCorner;
             } else if (i == 0 && j == 0) {
-                Room[i][j] = new LeftUpperWallCorner(x,y);
+                Room[i][j] = new LeftUpperWallCorner;
             } else if (i == 0 && j == _roomLength - 1) {
-                Room[i][j] = new RightUpperWallCorner(x,y);
+                Room[i][j] = new RightUpperWallCorner;
             } else if (i == _roomWidth - 1 && j == _roomLength - 1) {
-                Room[i][j] = new RightLowerWallCorner(x,y);
+                Room[i][j] = new RightLowerWallCorner;
+            } else {
+                Room[i][j] = new FloorTile(x, y);
             }
         }
     }
@@ -84,6 +81,9 @@ void room::PutTorchesInRoom() {
         if (row >= 0 && row < _roomWidth)
             Room[row][_roomLength - 2] = new RightTorchTile((_roomLength - 2) * TILE_SIZE, row * TILE_SIZE);
     };
+    if (_numberOfTorchersRoom == 0) {
+        return;
+    }
 
     if (_numberOfTorchersRoom == 1) {
         placeLeftTorch(_roomWidth / 2 + errorLeftWall - 1);
@@ -108,13 +108,24 @@ void room::PutTorchesInRoom() {
 }
 
 void room::PutColumnsInRoom() {
-    int ColumnLength = (_roomLength - 4 - _roomLength  / 4) / (_roomLength / 4 - 1);
-    int a = 2 * (_roomWidth / 3) + (_roomWidth % 3) + (_roomWidth % 2) - 1;
+    int ColumnLength = (_roomLength - 4 - _roomLength  / (_roomLength  / 4)) / (_roomLength / (_roomLength  / 4) - 1);
+    int SecondColumnRawPosition = 2 * (_roomWidth / 3) + (_roomWidth % 3) + (_roomWidth % 2) - 1;
+
 
     for (int y = 1; y < _roomLength - 2; y += ColumnLength) {
-        Room[a][y] = new Column;
-        Room[_roomWidth - 1 - a][y] = new Column;
+        if (Room[SecondColumnRawPosition][y] != nullptr) { delete Room[SecondColumnRawPosition][y]; }
+        if (Room[_roomWidth - 1 - SecondColumnRawPosition][y] != nullptr) { delete Room[_roomWidth - 1 - SecondColumnRawPosition][y]; }
+
+        Room[SecondColumnRawPosition][y] = new ColumnTile;
+        Room[_roomWidth - 1 - SecondColumnRawPosition][y] = new ColumnTile;
     }
+}
+
+void room::PutWaterInRoom() {
+    int x = RandomGenerator::getRandomNumber(3, _roomWidth);
+    int y = RandomGenerator::getRandomNumber(3, _roomLength);
+
+
 }
 
 RoomBuilder::RoomBuilder() {
