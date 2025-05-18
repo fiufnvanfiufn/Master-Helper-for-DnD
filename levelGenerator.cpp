@@ -66,9 +66,9 @@ void RunLevelGenerator(sf::Font& font) {
                     sf::Vector2f mousePos(event.mouseButton.x, event.mouseButton.y);
                     if (generateLargeRoomButton.isClicked(mousePos)) {
                         buildingComplete = false;
-                        columnMarkPoint = true;
+                        columnMarkPoint = false;
                         waterMarkPoint = false;
-                        torchMarkPoint = false;
+                        torchMarkPoint = true;
                         buildingStart = true;
 
                         if (currentRoom) {
