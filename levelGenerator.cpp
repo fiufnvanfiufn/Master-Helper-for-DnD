@@ -17,34 +17,34 @@ void RunLevelGenerator(sf::Font& font) {
     sf::Sprite background(backgroundTexture);
     background.setScale(1700.f / backgroundTexture.getSize().x, 1080.f / backgroundTexture.getSize().y);
 
-    button::Button generateSmallRoomButton(1300, 0, "DungeonButton", L"Создать маленькую комнату", font);
-    button::Button generateLargeRoomButton(1300, 700, "DungeonButton", L"Создать большую комнату", font);
+    button::Button generateSmallRoomButton(1300, 0, "ConstructionButton", L"Создать маленькую комнату", font);
+    button::Button generateLargeRoomButton(1300, 700, "ConstructionButton", L"Создать большую комнату", font);
 
-    button::Button yesButton(600, 200, "DungeonButton", L"Да", font);
-    button::Button noButton(850, 200, "DungeonButton", L"Нет", font);
+    button::Button yesButton(400, 500, "ConstructionButton", L"Да", font);
+    button::Button noButton(900, 500, "ConstructionButton", L"Нет", font);
 
-    std::vector<button::Button*> buttons = { &generateSmallRoomButton, &generateLargeRoomButton };
+    std::vector<button::Button*> buttons = {&generateSmallRoomButton, &generateLargeRoomButton};
 
     sf::Text columnQuestionText;
     columnQuestionText.setFont(font);
     columnQuestionText.setCharacterSize(50);
     columnQuestionText.setFillColor(sf::Color::White);
     columnQuestionText.setString(L"Добавить колонны в комнату?");
-    columnQuestionText.setPosition(600, 100);
+    columnQuestionText.setPosition(600, 300);
 
     sf::Text waterQuestionText;
     waterQuestionText.setFont(font);
     waterQuestionText.setCharacterSize(50);
     waterQuestionText.setFillColor(sf::Color::White);
     waterQuestionText.setString(L"Добавить воду в комнату?");
-    waterQuestionText.setPosition(600, 100);
+    waterQuestionText.setPosition(600, 300);
 
     sf::Text torchesQuestionText;
     torchesQuestionText.setFont(font);
     torchesQuestionText.setCharacterSize(50);
     torchesQuestionText.setFillColor(sf::Color::White);
     torchesQuestionText.setString(L"Добавить факелы в комнату?");
-    torchesQuestionText.setPosition(600, 100);
+    torchesQuestionText.setPosition(600, 300);
 
     room* currentRoom = nullptr;
 
@@ -82,9 +82,9 @@ void RunLevelGenerator(sf::Font& font) {
 
                     } else if (generateSmallRoomButton.isClicked(mousePos)) {
                         buildingComplete = false;
-                        columnMarkPoint = true;
+                        torchMarkPoint = true;
                         waterMarkPoint = false;
-                        torchMarkPoint = false;
+                        columnMarkPoint = false;
                         buildingStart = true;
 
                         if (currentRoom) {
@@ -112,19 +112,20 @@ void RunLevelGenerator(sf::Font& font) {
                                 columnMarkPoint = true;
                             } else if (columnMarkPoint) {
                                 currentRoom->PutColumnsInRoom();
+                                columnMarkPoint = false;
                                 buildingStart = false;
                                 buildingComplete = true;
                             }
                         }
                     } else if (noButton.isClicked(mousePos)) {
-                        if (columnMarkPoint) {
-                            columnMarkPoint = false;
+                        if (torchMarkPoint) {
+                            torchMarkPoint = false;
                             waterMarkPoint = true;
                         } else if (waterMarkPoint) {
                             waterMarkPoint = false;
-                            torchMarkPoint = true;
-                        } else if (torchMarkPoint) {
-                            torchMarkPoint = false;
+                            columnMarkPoint = true;
+                        } else if (columnMarkPoint) {
+                            columnMarkPoint = false;
                             buildingStart = false;
                             buildingComplete = true;
                         }

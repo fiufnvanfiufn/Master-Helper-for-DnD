@@ -13,7 +13,8 @@ Button::Button(float x, float y, const std::string& type, const std::wstring& te
         {"BonFireButton", "assets/pictures/buttons/BonFireButton.png"},
         {"CityButton", "assets/pictures/buttons/CityButton.png"},
         {"DungeonButton", "assets/pictures/buttons/DungeonButton.png"},
-        {"MysteryButton", "assets/pictures/buttons/MysteryButton.png"}
+        {"MysteryButton", "assets/pictures/buttons/MysteryButton.png"},
+        {"ConstructionButton", "assets/pictures/buttons/ConstructionButton.png"}
 
     };
 
@@ -92,6 +93,11 @@ void Button::configureClickableArea(const std::string& type) {
         sprite.setScale(0.18f, 0.20f);
         label.setCharacterSize(32);
         clickableArea = sf::FloatRect(pos.x, pos.y + 40, 260, 120);
+        label.setFillColor(sf::Color::White);
+    } else if (type == "ConstructionButton") {
+        sprite.setScale(0.3f, 0.3f);
+        label.setCharacterSize(32);
+        clickableArea = sf::FloatRect(pos.x, pos.y + 40, 400, 200);
         label.setFillColor(sf::Color::White);
     } else {
         clickableArea = sprite.getGlobalBounds();
