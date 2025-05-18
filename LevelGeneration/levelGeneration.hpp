@@ -79,7 +79,7 @@ public:
 
     void SetTorchesInRoom(bool IsTorchesInRoom) override {
         if (IsTorchesInRoom) {
-            ex->SetTorchesInRoom(1);
+            ex->PutTorchesInRoom();
         }
 
     }
@@ -111,7 +111,7 @@ public:
 
     void SetTorchesInRoom(bool IsTorchesInRoom) override {
         if (IsTorchesInRoom) {
-            ex->SetTorchesInRoom(3);
+            ex->PutTorchesInRoom();
         }
 
     }

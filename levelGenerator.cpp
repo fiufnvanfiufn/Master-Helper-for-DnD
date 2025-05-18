@@ -102,17 +102,16 @@ void RunLevelGenerator(sf::Font& font) {
                     sf::Vector2f mousePos(event.mouseButton.x, event.mouseButton.y);
                     if (yesButton.isClicked(mousePos)) {
                         if (currentRoom) {
-                            if (columnMarkPoint) {
-                                currentRoom->PutColumnsInRoom();
-                                columnMarkPoint = false;
+                            if (torchMarkPoint) {
+                                currentRoom->PutTorchesInRoom();
+                                torchMarkPoint = false;
                                 waterMarkPoint = true;
                             } else if (waterMarkPoint) {
                                 currentRoom->PutWaterInRoom();
                                 waterMarkPoint = false;
-                                torchMarkPoint = true;
-                            } else if (torchMarkPoint) {
-                                currentRoom->PutTorchesInRoom();
-                                torchMarkPoint = false;
+                                columnMarkPoint = true;
+                            } else if (columnMarkPoint) {
+                                currentRoom->PutColumnsInRoom();
                                 buildingStart = false;
                                 buildingComplete = true;
                             }
