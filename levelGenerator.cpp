@@ -21,12 +21,25 @@ void RunLevelGenerator(sf::Font& font) {
     button::Button generateSmallRoomButton(0, 0, "DungeonButton", L"Создать маленькую комнату", font);
     button::Button generateLargeRoomButton(500, 0, "DungeonButton", L"Создать большую комнату", font);
 
+    button::Button yesButton(250, 600, "DungeonButton", L"Да", font);
+    button::Button noButton(500, 600, "DungeonButton", L"Нет", font);
+
     std::vector<button::Button*> buttons = {
         &generateSmallRoomButton,
         &generateLargeRoomButton
     };
 
+    sf::Text questionText;
+    questionText.setFont(font);
+    questionText.setCharacterSize(50);
+    questionText.setFillColor(sf::Color::White);
+    questionText.setString(L"Добавить колонны в комнату?");
+    questionText.setPosition(200, 500);
+
     room* currentRoom = nullptr;
+
+    bool buildingComplete = false;
+    bool buildingStart = false;
 
     while (levelGenerator.isOpen()) {
         sf::Event event;
@@ -34,37 +47,68 @@ void RunLevelGenerator(sf::Font& font) {
             if (event.type == sf::Event::Closed) {
                 levelGenerator.close();
             }
-
-            if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
+            if (!buildingStart){
+                if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
                 sf::Vector2f mousePos(event.mouseButton.x, event.mouseButton.y);
                 if (generateLargeRoomButton.isClicked(mousePos)) {
+                    buildingComplete = false;
+                    buildingStart = true;
                     if (currentRoom) { delete currentRoom; currentRoom = nullptr;}
                     Director a;
                     LargeRoomBuilder largeRoomBuilder;
                     currentRoom = a.CreateRoom(largeRoomBuilder);
                 } else if (generateSmallRoomButton.isClicked(mousePos)) {
+                    buildingComplete = false;
+                    buildingStart = true;
                     if (currentRoom)  { delete currentRoom; currentRoom = nullptr;}
                     Director a;
                     SmallRoomBuilder smallRoomBuilder;
                     currentRoom = a.CreateRoom(smallRoomBuilder);
+                    }
+                }
+            } else if (buildingStart) {
+                if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
+                    sf::Vector2f mousePos(event.mouseButton.x, event.mouseButton.y);
+                    if (yesButton.isClicked(mousePos)) {
+                        if (currentRoom) currentRoom->PutColumnsInRoom();
+                            buildingComplete = true;
+                            buildingStart = false;
+                    } else if (noButton.isClicked(mousePos)) {
+                        buildingComplete = true;
+                        buildingStart = false;
+                    }
                 }
             }
         }
 
         sf::Vector2i mouse = sf::Mouse::getPosition(levelGenerator);
-        for (button::Button* button : buttons) {
-            button->update(sf::Vector2f(mouse));
-        }
+
 
         levelGenerator.clear();
         levelGenerator.draw(background);
 
-        for (button::Button* button : buttons) {
-            button->draw(levelGenerator);
+        if (!buildingStart){
+            for (button::Button* button : buttons) {
+                button->draw(levelGenerator);
+            }
+            for (button::Button* button : buttons) {
+                button->update(sf::Vector2f(mouse));
+            }
+        } else {
+            levelGenerator.draw(questionText);
+            yesButton.draw(levelGenerator);
+            noButton.draw(levelGenerator);
+            yesButton.update(sf::Vector2f(mouse));
+            noButton.update(sf::Vector2f(mouse));
         }
 
+
         if (currentRoom) {
-            currentRoom->draw(levelGenerator);
+            if (buildingComplete) {
+                std::cout << "drawing:" << std::endl;
+                currentRoom->draw(levelGenerator);
+            }
+
         }
 
         levelGenerator.display();

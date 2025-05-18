@@ -172,47 +172,89 @@ public:
 
 class RightUpperWallCorner : public Tile {
 private:
+    static sf::Texture texture;
 
 public:
-    RightUpperWallCorner() {}
+    RightUpperWallCorner(float x = 0.f, float y = 0.f) {if (texture.getSize().x == 0 &&
+            !texture.loadFromFile("assets/pictures/tiles/upperRightCorner.png"))
+        {
+            std::cerr << "Ошибка загрузки upperRightCorner\n";
+        }
+        sprite.setTexture(texture);
+        sprite.setScale(TILE_SIZE / texture.getSize().x, TILE_SIZE / texture.getSize().y);
+        setPosition(x, y);
+    }
 
     ~RightUpperWallCorner() {}
 };
 
 class LeftUpperWallCorner : public Tile {
 private:
-
+    static sf::Texture texture;
 public:
-    LeftUpperWallCorner() {}
+    LeftUpperWallCorner(float x = 0.f, float y = 0.f) {if (texture.getSize().x == 0 &&
+            !texture.loadFromFile("assets/pictures/tiles/upperLeftCorner.png"))
+        {
+            std::cerr << "Ошибка загрузки upperLeftCorner\n";
+        }
+        sprite.setTexture(texture);
+        sprite.setScale(TILE_SIZE / texture.getSize().x, TILE_SIZE / texture.getSize().y);
+        setPosition(x, y);
+    }
 
     ~LeftUpperWallCorner() {}
 };
 
 class RightLowerWallCorner : public Tile {
 private:
+    static sf::Texture texture;
 
 public:
-    RightLowerWallCorner() {}
+    RightLowerWallCorner(float x = 0.f, float y = 0.f) {if (texture.getSize().x == 0 &&
+            !texture.loadFromFile("assets/pictures/tiles/lowerRightCorner.png"))
+        {
+            std::cerr << "Ошибка загрузки upperLeftCorner\n";
+        }
+        sprite.setTexture(texture);
+        sprite.setScale(TILE_SIZE / texture.getSize().x, TILE_SIZE / texture.getSize().y);
+        setPosition(x, y);
+    }
 
     ~RightLowerWallCorner() {}
 };
 
 class LeftLowerWallCorner : public Tile {
 private:
+    static sf::Texture texture;
 
 public:
-
-    LeftLowerWallCorner() {}
+    LeftLowerWallCorner(float x = 0.f, float y = 0.f) {if (texture.getSize().x == 0 &&
+            !texture.loadFromFile("assets/pictures/tiles/lowerLeftCorner.png"))
+        {
+            std::cerr << "Ошибка загрузки lowerLeftCorner\n";
+        }
+        sprite.setTexture(texture);
+        sprite.setScale(TILE_SIZE / texture.getSize().x, TILE_SIZE / texture.getSize().y);
+        setPosition(x, y);
+    }
 
     ~LeftLowerWallCorner() {}
 };
 
 class Column : public Tile {
 private:
+    static sf::Texture texture;
 
 public:
-
-    Column() {}
+    Column(float x = 0.f, float y = 0.f) {if (texture.getSize().x == 0 &&
+            !texture.loadFromFile("assets/pictures/tiles/column.png"))
+        {
+            std::cerr << "Ошибка загрузки column\n";
+        }
+        sprite.setTexture(texture);
+        sprite.setScale(TILE_SIZE / texture.getSize().x, TILE_SIZE / texture.getSize().y);
+        setPosition(x, y);
+    }
 
     ~Column() {}
 };

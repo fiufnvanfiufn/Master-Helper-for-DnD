@@ -9,6 +9,12 @@ sf::Texture RightTorchTile::texture;
 sf::Texture LeftTorchTile::texture;
 sf::Texture UpperTorchTile::texture;
 sf::Texture LowerTorchTile::texture;
+sf::Texture RightUpperWallCorner::texture;
+sf::Texture LeftUpperWallCorner::texture;
+sf::Texture RightLowerWallCorner::texture;
+sf::Texture LeftLowerWallCorner::texture;
+sf::Texture Column::texture;
+
 
 room::~room() {
     for (int i = 0; i < _roomWidth; ++i) {
@@ -52,13 +58,13 @@ void room::SetRoom() {
             } else if (i == 0 && j != 0 && j != _roomLength - 1) {
                 Room[i][j] = new FloorTile(x, y);
             } else if (i == _roomWidth - 1 && j == 0) {
-                Room[i][j] = new LeftLowerWallCorner;
+                Room[i][j] = new LeftLowerWallCorner(x,y);
             } else if (i == 0 && j == 0) {
-                Room[i][j] = new LeftUpperWallCorner;
+                Room[i][j] = new LeftUpperWallCorner(x,y);
             } else if (i == 0 && j == _roomLength - 1) {
-                Room[i][j] = new RightUpperWallCorner;
+                Room[i][j] = new RightUpperWallCorner(x,y);
             } else if (i == _roomWidth - 1 && j == _roomLength - 1) {
-                Room[i][j] = new RightLowerWallCorner;
+                Room[i][j] = new RightLowerWallCorner(x,y);
             }
         }
     }
