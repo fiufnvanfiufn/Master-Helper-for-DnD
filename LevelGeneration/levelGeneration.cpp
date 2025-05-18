@@ -101,16 +101,15 @@ void room::PutTorchesInRoom() {
     }
 }
 
-/*void room::PutColumnsInRoom() {
-    for (int x{}; x < _roomWidth; ++x) {
-        int a = 2 * (_roomWidth / 3) + (_roomWidth % 3) + (_roomWidth % 2) - 1;
-        if (a == x) {
-            for (int y{}; y < _roomLength; ++y) {
+void room::PutColumnsInRoom() {
+    int ColumnLength = (_roomLength - 4 - _roomLength  / 4) / (_roomLength / 4 - 1);
+    int a = 2 * (_roomWidth / 3) + (_roomWidth % 3) + (_roomWidth % 2) - 1;
 
-            }
-        }
+    for (int y = 1; y < _roomLength - 2; y += ColumnLength) {
+        Room[a][y] = new Column;
+        Room[_roomWidth - 1 - a][y] = new Column;
     }
-}*/
+}
 
 RoomBuilder::RoomBuilder() {
     ex = new room();
