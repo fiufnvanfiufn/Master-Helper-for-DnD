@@ -172,57 +172,108 @@ public:
 
 class RightUpperWallCorner : public Tile {
 private:
-
+    static sf::Texture texture;
 public:
-    RightUpperWallCorner() {}
+    RightUpperWallCorner(float x = 0.f, float y = 0.f) {
+        if (texture.getSize().x == 0 &&
+            !texture.loadFromFile("assets/pictures/tiles/upperRightCorner.png"))
+        {
+            std::cerr << "Ошибка загрузки lowerTorch.png\n";
+        }
+        sprite.setTexture(texture);
+        sprite.setScale(TILE_SIZE / texture.getSize().x, TILE_SIZE / texture.getSize().y);
+        setPosition(x, y);
+    }
 
     ~RightUpperWallCorner() {}
 };
 
 class LeftUpperWallCorner : public Tile {
 private:
-
+static sf::Texture texture;
 public:
-    LeftUpperWallCorner() {}
+    LeftUpperWallCorner(float x = 0.f, float y = 0.f) {
+        if (texture.getSize().x == 0 &&
+            !texture.loadFromFile("assets/pictures/tiles/upperLeftCorner.png"))
+        {
+            std::cerr << "Ошибка загрузки lowerTorch.png\n";
+        }
+        sprite.setTexture(texture);
+        sprite.setScale(TILE_SIZE / texture.getSize().x, TILE_SIZE / texture.getSize().y);
+        setPosition(x, y);
+    }
 
     ~LeftUpperWallCorner() {}
 };
 
 class RightLowerWallCorner : public Tile {
 private:
-
+static sf::Texture texture;
 public:
-    RightLowerWallCorner() {}
+    RightLowerWallCorner(float x = 0.f, float y = 0.f) {
+        if (texture.getSize().x == 0 &&
+            !texture.loadFromFile("assets/pictures/tiles/lowerRightCorner.png"))
+        {
+            std::cerr << "Ошибка загрузки lowerTorch.png\n";
+        }
+        sprite.setTexture(texture);
+        sprite.setScale(TILE_SIZE / texture.getSize().x, TILE_SIZE / texture.getSize().y);
+        setPosition(x, y);
+    }
 
     ~RightLowerWallCorner() {}
 };
 
 class LeftLowerWallCorner : public Tile {
 private:
-
+static sf::Texture texture;
 public:
-
-    LeftLowerWallCorner() {}
+    LeftLowerWallCorner(float x = 0.f, float y = 0.f) {
+        if (texture.getSize().x == 0 &&
+            !texture.loadFromFile("assets/pictures/tiles/lowerLeftCorner.png"))
+        {
+            std::cerr << "Ошибка загрузки lowerTorch.png\n";
+        }
+        sprite.setTexture(texture);
+        sprite.setScale(TILE_SIZE / texture.getSize().x, TILE_SIZE / texture.getSize().y);
+        setPosition(x, y);
+    }
 
     ~LeftLowerWallCorner() {}
 };
 
 class ColumnTile : public Tile {
 private:
-
+static sf::Texture texture;
 public:
-
-    ColumnTile() {}
+    ColumnTile(float x = 0.f, float y = 0.f) {
+        if (texture.getSize().x == 0 &&
+            !texture.loadFromFile("assets/pictures/tiles/column.png"))
+        {
+            std::cerr << "Ошибка загрузки lowerTorch.png\n";
+        }
+        sprite.setTexture(texture);
+        sprite.setScale(TILE_SIZE / texture.getSize().x, TILE_SIZE / texture.getSize().y);
+        setPosition(x, y);
+    }
 
     ~ColumnTile() {}
 };
 
 class WaterTile : public Tile {
 private:
-
+static sf::Texture texture;
 public:
-
-    WaterTile() {}
+    WaterTile(float x = 0.f, float y = 0.f) {
+        if (texture.getSize().x == 0 &&
+            !texture.loadFromFile("assets/pictures/tiles/water.png"))
+        {
+            std::cerr << "Ошибка загрузки lowerTorch.png\n";
+        }
+        sprite.setTexture(texture);
+        sprite.setScale(TILE_SIZE / texture.getSize().x, TILE_SIZE / texture.getSize().y);
+        setPosition(x, y);
+    }
 
     ~WaterTile() {}
 };

@@ -19,8 +19,8 @@ int runMainMenu(sf::Font& font) {
                         1080.f / backgroundTexture.getSize().y);
 
     button::Button soundPadOpenButton(50, 600, "DragonButton", L"Саундпад", font);
-    button::Button musicPanelOpenButton(450, 600, "DragonButton", L"Музыкальная панель", font);
-    button::Button levelGeneratorOpenButton(850, 600, "DragonButton", L"Генератор комнат", font);
+    button::Button musicPanelOpenButton(750, 600, "DragonButton", L"Музыкальная панель", font);
+    button::Button levelGeneratorOpenButton(1500, 600, "DragonButton", L"Генератор комнат", font);
 
 
     while (menu.isOpen()) {

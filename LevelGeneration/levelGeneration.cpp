@@ -9,6 +9,12 @@ sf::Texture RightTorchTile::texture;
 sf::Texture LeftTorchTile::texture;
 sf::Texture UpperTorchTile::texture;
 sf::Texture LowerTorchTile::texture;
+sf::Texture RightUpperWallCorner::texture;
+sf::Texture LeftUpperWallCorner::texture;
+sf::Texture RightLowerWallCorner::texture;
+sf::Texture LeftLowerWallCorner::texture;
+sf::Texture ColumnTile::texture;
+sf::Texture WaterTile::texture;
 
 room::~room() {
     for (int i = 0; i < _roomWidth; ++i) {
@@ -53,13 +59,13 @@ void room::SetRoom() {
             } else if (j == 0 && i != 0 && i != _roomWidth - 1){
                 Room[i][j] = new LeftWallTile(x, y);
             }  else if (i == _roomWidth - 1 && j == 0) {
-                Room[i][j] = new LeftLowerWallCorner;
+                Room[i][j] = new LeftLowerWallCorner(x,y);
             } else if (i == 0 && j == 0) {
-                Room[i][j] = new LeftUpperWallCorner;
+                Room[i][j] = new LeftUpperWallCorner(x,y);
             } else if (i == 0 && j == _roomLength - 1) {
-                Room[i][j] = new RightUpperWallCorner;
+                Room[i][j] = new RightUpperWallCorner(x,y);
             } else if (i == _roomWidth - 1 && j == _roomLength - 1) {
-                Room[i][j] = new RightLowerWallCorner;
+                Room[i][j] = new RightLowerWallCorner(x,y);
             } else {
                 Room[i][j] = new FloorTile(x, y);
             }
@@ -108,22 +114,34 @@ void room::PutTorchesInRoom() {
 }
 
 void room::PutColumnsInRoom() {
-    int ColumnLength = (_roomLength - 4 - _roomLength  / (_roomLength  / 4)) / (_roomLength / (_roomLength  / 4) - 1);
+    const float TILE_SIZE = 64.f;
+
+    int ColumnLength = (_roomLength - 4 - _roomLength / (_roomLength / 4)) / (_roomLength / (_roomLength / 4) - 1);
     int SecondColumnRawPosition = 2 * (_roomWidth / 3) + (_roomWidth % 3) + (_roomWidth % 2) - 1;
 
-
     for (int y = 1; y < _roomLength - 2; y += ColumnLength) {
-        if (Room[SecondColumnRawPosition][y] != nullptr) { delete Room[SecondColumnRawPosition][y]; }
-        if (Room[_roomWidth - 1 - SecondColumnRawPosition][y] != nullptr) { delete Room[_roomWidth - 1 - SecondColumnRawPosition][y]; }
+        int x1 = y * TILE_SIZE;
+        int y1 = SecondColumnRawPosition * TILE_SIZE;
 
-        Room[SecondColumnRawPosition][y] = new ColumnTile;
-        Room[_roomWidth - 1 - SecondColumnRawPosition][y] = new ColumnTile;
+        int x2 = y * TILE_SIZE;
+        int y2 = (_roomWidth - 1 - SecondColumnRawPosition) * TILE_SIZE;
+
+        if (Room[SecondColumnRawPosition][y] != nullptr) {
+            delete Room[SecondColumnRawPosition][y];
+        }
+        if (Room[_roomWidth - 1 - SecondColumnRawPosition][y] != nullptr) {
+            delete Room[_roomWidth - 1 - SecondColumnRawPosition][y];
+        }
+
+        Room[SecondColumnRawPosition][y] = new ColumnTile(x1, y1);
+        Room[_roomWidth - 1 - SecondColumnRawPosition][y] = new ColumnTile(x2, y2);
     }
 }
-
 void room::PutWaterInRoom() {
-    int i = RandomGenerator::getRandomNumber(3, _roomWidth);
-    int j = RandomGenerator::getRandomNumber(3, _roomLength);
+    int i = RandomGenerator::getRandomNumber(3, _roomWidth - 2);
+    int j = RandomGenerator::getRandomNumber(3, _roomLength - 2);
+
+    const float TILE_SIZE = 64.f;
 
     delete Room[i][j];
     delete Room[i + 1][j];
@@ -131,11 +149,11 @@ void room::PutWaterInRoom() {
     delete Room[i][j + 1];
     delete Room[i][j - 1];
 
-    Room[i][j] = new WaterTile;
-    Room[i + 1][j] = new WaterTile;
-    Room[i - 1][j] = new WaterTile;
-    Room[i][j + 1] = new WaterTile;
-    Room[i][j - 1] = new WaterTile;
+    Room[i][j]         = new WaterTile(j * TILE_SIZE, i * TILE_SIZE);
+    Room[i + 1][j]     = new WaterTile(j * TILE_SIZE, (i + 1) * TILE_SIZE);
+    Room[i - 1][j]     = new WaterTile(j * TILE_SIZE, (i - 1) * TILE_SIZE);
+    Room[i][j + 1]     = new WaterTile((j + 1) * TILE_SIZE, i * TILE_SIZE);
+    Room[i][j - 1]     = new WaterTile((j - 1) * TILE_SIZE, i * TILE_SIZE);
 }
 
 RoomBuilder::RoomBuilder() {
@@ -158,7 +176,7 @@ void room::draw(sf::RenderWindow& window) {
     }
 }
 
-room* Director::CreateRoom(RoomBuilder& builder, bool IsTorchesInRoom = false, bool IsColumnInRoom = false, bool IsWaterInRoom = false) {
+room* Director::CreateRoom(RoomBuilder& builder, bool IsTorchesInRoom, bool IsColumnInRoom, bool IsWaterInRoom) {
     builder.SetRoomLength();
     builder.SetRoomWidth();
     builder.SetTorchesInRoom(IsTorchesInRoom);
