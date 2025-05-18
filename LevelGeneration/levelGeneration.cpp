@@ -33,7 +33,7 @@ void room::SetRoomLength(int roomLength) {
     _roomLength = roomLength;
 }
 
-void room::SetTorchesInRoom(int numberOfTorchersRoom) {
+void room::SetNumberOfTorchesInRoom(int numberOfTorchersRoom) {
     _numberOfTorchersRoom = numberOfTorchersRoom;
 }
 
@@ -116,24 +116,18 @@ void room::PutTorchesInRoom() {
 void room::PutColumnsInRoom() {
     const float TILE_SIZE = 64.f;
     int MARGIN{};
-    const int WALL_THICKNESS = 1;  // Толщина стены в клетках
-    // Определяем отступ в зависимости от четности длины комнаты
-    int margin = (_roomLength % 2 == 0) ? 1 : 2;  // 1 для четных, 2 для нечетных
+    const int WALL_THICKNESS = 1;
+    int margin = (_roomLength % 2 == 0) ? 1 : 2;
 
-    // Рассчитываем доступное пространство для колонн
     int availableSpace = _roomLength - 2 * WALL_THICKNESS - 2 * margin;
 
-    // Количество колонн в ряду (минимум 2)
     int columnCount = 2;
 
-    // Рассчитываем расстояние между колоннами
     int columnSpacing = (availableSpace > 0) ? availableSpace / (columnCount + 1) : 0;
 
-    // Позиции колонн по ширине (1/3 и 2/3 ширины комнаты)
     int column1Pos = _roomWidth / 3;
     int column2Pos = _roomWidth - 1 - column1Pos;
 
-    // Расставляем колонны
     for (int y = margin + WALL_THICKNESS;
          y < _roomLength - margin - WALL_THICKNESS;
          y += columnSpacing + 1) {
@@ -143,22 +137,19 @@ void room::PutColumnsInRoom() {
         float xPos2 = y * TILE_SIZE;
         float yPos2 = column2Pos * TILE_SIZE;
 
-        // Очищаем старые тайлы
         if (Room[column1Pos][y]) delete Room[column1Pos][y];
         if (Room[column2Pos][y]) delete Room[column2Pos][y];
 
-        // Создаем новые колонны
         Room[column1Pos][y] = new ColumnTile(xPos1, yPos1);
         Room[column2Pos][y] = new ColumnTile(xPos2, yPos2);
 
-        // Защита от бесконечного цикла
         if (columnSpacing <= 0) break;
     }
 }
 
 void room::PutWaterInRoom() {
-    int i = RandomGenerator::getRandomNumber(3, _roomWidth - 2);
-    int j = RandomGenerator::getRandomNumber(3, _roomLength - 2);
+    int i = RandomGenerator::getRandomNumber(3, _roomWidth - 3);
+    int j = RandomGenerator::getRandomNumber(3, _roomLength - 3);
 
     const float TILE_SIZE = 64.f;
 

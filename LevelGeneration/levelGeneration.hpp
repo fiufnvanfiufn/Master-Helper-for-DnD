@@ -37,7 +37,7 @@ public:
 
     void SetRoomLength(int roomLength);
 
-    void SetTorchesInRoom(int numberOfTorchersRoom);
+    void SetNumberOfTorchesInRoom(int numberOfTorchersRoom);
 
     void SetRoom();
 
@@ -79,7 +79,7 @@ public:
 
     void SetTorchesInRoom(bool IsTorchesInRoom) override {
         if (IsTorchesInRoom) {
-            ex->PutTorchesInRoom();
+            ex->SetNumberOfTorchesInRoom(1);
         }
 
     }
@@ -106,12 +106,12 @@ public:
     }
 
     void SetRoomWidth() override {
-        ex->SetRoomWidth(RandomGenerator::getRandomNumber(14, 20));
+        ex->SetRoomWidth(RandomGenerator::getRandomNumber(14, 16));
     }
 
     void SetTorchesInRoom(bool IsTorchesInRoom) override {
         if (IsTorchesInRoom) {
-            ex->PutTorchesInRoom();
+            ex->SetNumberOfTorchesInRoom(3);
         }
 
     }
@@ -133,5 +133,5 @@ public:
 
 class Director {
 public:
-    room* CreateRoom(RoomBuilder& builder, bool IsTorchesInRoom = false, bool IsColumnInRoom = false, bool IsWaterInRoom = false);
+    room* CreateRoom(RoomBuilder& builder, bool IsTorchesInRoom = true, bool IsColumnInRoom = false, bool IsWaterInRoom = false);
 };
