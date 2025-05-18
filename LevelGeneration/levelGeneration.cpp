@@ -122,10 +122,20 @@ void room::PutColumnsInRoom() {
 }
 
 void room::PutWaterInRoom() {
-    int x = RandomGenerator::getRandomNumber(3, _roomWidth);
-    int y = RandomGenerator::getRandomNumber(3, _roomLength);
+    int i = RandomGenerator::getRandomNumber(3, _roomWidth);
+    int j = RandomGenerator::getRandomNumber(3, _roomLength);
 
+    delete Room[i][j];
+    delete Room[i + 1][j];
+    delete Room[i - 1][j];
+    delete Room[i][j + 1];
+    delete Room[i][j - 1];
 
+    Room[i][j] = new WaterTile;
+    Room[i + 1][j] = new WaterTile;
+    Room[i - 1][j] = new WaterTile;
+    Room[i][j + 1] = new WaterTile;
+    Room[i][j - 1] = new WaterTile;
 }
 
 RoomBuilder::RoomBuilder() {
@@ -148,10 +158,11 @@ void room::draw(sf::RenderWindow& window) {
     }
 }
 
-room* Director::CreateRoom(RoomBuilder& builder) {
+room* Director::CreateRoom(RoomBuilder& builder, bool IsTorchesInRoom = false, bool IsColumnInRoom = false, bool IsWaterInRoom = false) {
     builder.SetRoomLength();
     builder.SetRoomWidth();
-    builder.SetTorchesInRoom();
+    builder.SetTorchesInRoom(IsTorchesInRoom);
+    builder.SetColumnsInRoom(IsColumnInRoom);
     builder.GetRoom()->SetRoom();
     builder.GetRoom()->PutTorchesInRoom();
     return builder.GetRoom();

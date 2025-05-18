@@ -20,8 +20,12 @@ private:
     int _roomLength = 0;
     int _roomWidth = 0;
     int _numberOfTorchersRoom = 0;
+
     std::vector<std::vector<Tile*>> Room;
+
     bool IsColumnsInRoom = false;
+    bool IsTorchesInRoom = false;
+    bool IsWaterInRoom = false;
 public:
     room() {}
 
@@ -40,6 +44,8 @@ public:
     void PutTorchesInRoom();
 
     void PutColumnsInRoom();
+
+    void PutWaterInRoom();
 };
 
 class RoomBuilder {
@@ -54,7 +60,9 @@ public:
 
     virtual void SetRoomLength() = 0;
     virtual void SetRoomWidth() = 0;
-    virtual void SetTorchesInRoom() = 0;
+    virtual void SetTorchesInRoom(bool IsTorchesInRoom) = 0;
+    virtual void SetColumnsInRoom(bool IsColumnInRoom) = 0;
+    virtual void SetWaterInRoom(bool IsWaterInRoom) = 0;
 
     room* GetRoom();
 };
@@ -62,36 +70,59 @@ public:
 class SmallRoomBuilder : public RoomBuilder {
 public:
     void SetRoomLength() override {
-        int length = RandomGenerator::getRandomNumber(4, 7);
-        std::cout << "Generated length: " << length << "\n";
-        ex->SetRoomLength(length);
+        ex->SetRoomLength(RandomGenerator::getRandomNumber(8, 10));
     }
 
     void SetRoomWidth() override {
-        ex->SetRoomWidth(RandomGenerator::getRandomNumber(5, 8));
+        ex->SetRoomWidth(RandomGenerator::getRandomNumber(8, 10));
     }
 
-    void SetTorchesInRoom() override {
+    void SetTorchesInRoom(bool IsTorchesInRoom) override {
         ex->SetTorchesInRoom(1);
+    }
+
+    void SetColumnsInRoom(bool IsColumnInRoom) override {
+        ex->PutColumnsInRoom();
+    }
+
+    void SetWaterInRoom(bool IsWaterInRoom) override {
+        ex->PutWaterInRoom();
     }
 };
 
 class LargeRoomBuilder : public RoomBuilder {
 public:
     void SetRoomLength() override {
-        ex->SetRoomLength(RandomGenerator::getRandomNumber(8, 12));
+        ex->SetRoomLength(RandomGenerator::getRandomNumber(12, 18));
     }
 
     void SetRoomWidth() override {
-        ex->SetRoomWidth(RandomGenerator::getRandomNumber(10, 14));
+        ex->SetRoomWidth(RandomGenerator::getRandomNumber(14, 20));
     }
 
-    void SetTorchesInRoom() override {
-        ex->SetTorchesInRoom(3);
+    void SetTorchesInRoom(bool IsTorchesInRoom) override {
+        if (IsTorchesInRoom) {
+            ex->SetTorchesInRoom(3);
+        }
+
+    }
+
+    void SetColumnsInRoom(bool IsColumnInRoom) override {
+        if (IsColumnInRoom) {
+            ex->PutColumnsInRoom();
+        }
+
+    }
+
+    void SetWaterInRoom(bool IsWaterInRoom) override {
+        if (IsWaterInRoom) {
+            ex->PutWaterInRoom();
+        }
+
     }
 };
 
 class Director {
 public:
-    room* CreateRoom(RoomBuilder& builder);
+    room* CreateRoom(RoomBuilder& builder, bool IsTorchesInRoom = false, bool IsColumnInRoom = false, bool IsWaterInRoom = false);
 };
