@@ -78,15 +78,24 @@ public:
     }
 
     void SetTorchesInRoom(bool IsTorchesInRoom) override {
-        ex->SetTorchesInRoom(1);
-    }
+        if (IsTorchesInRoom) {
+            ex->SetTorchesInRoom(1);
+        }
 
-    void SetColumnsInRoom(bool IsColumnInRoom) override {
-        ex->PutColumnsInRoom();
     }
 
     void SetWaterInRoom(bool IsWaterInRoom) override {
-        ex->PutWaterInRoom();
+        if (IsWaterInRoom) {
+            ex->PutWaterInRoom();
+        }
+
+    }
+
+    void SetColumnsInRoom(bool IsColumnInRoom) override {
+        if (IsColumnInRoom) {
+            ex->PutColumnsInRoom();
+        }
+
     }
 };
 
@@ -107,16 +116,16 @@ public:
 
     }
 
-    void SetColumnsInRoom(bool IsColumnInRoom) override {
-        if (IsColumnInRoom) {
-            ex->PutColumnsInRoom();
+    void SetWaterInRoom(bool IsWaterInRoom) override {
+        if (IsWaterInRoom) {
+            ex->PutWaterInRoom();
         }
 
     }
 
-    void SetWaterInRoom(bool IsWaterInRoom) override {
-        if (IsWaterInRoom) {
-            ex->PutWaterInRoom();
+    void SetColumnsInRoom(bool IsColumnInRoom) override {
+        if (IsColumnInRoom) {
+            ex->PutColumnsInRoom();
         }
 
     }
