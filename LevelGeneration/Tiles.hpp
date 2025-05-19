@@ -176,7 +176,7 @@ private:
 public:
     RightUpperWallCorner(float x = 0.f, float y = 0.f) {
         if (texture.getSize().x == 0 &&
-            !texture.loadFromFile("assets/pictures/tiles/upperRightCorner.png"))
+            !texture.loadFromFile("assets/pictures/tiles/upperRightCorner.jpg"))
         {
             std::cerr << "Ошибка загрузки lowerTorch.png\n";
         }
@@ -194,7 +194,7 @@ static sf::Texture texture;
 public:
     LeftUpperWallCorner(float x = 0.f, float y = 0.f) {
         if (texture.getSize().x == 0 &&
-            !texture.loadFromFile("assets/pictures/tiles/upperLeftCorner.png"))
+            !texture.loadFromFile("assets/pictures/tiles/upperLeftCorner.jpg"))
         {
             std::cerr << "Ошибка загрузки lowerTorch.png\n";
         }
@@ -212,7 +212,7 @@ static sf::Texture texture;
 public:
     RightLowerWallCorner(float x = 0.f, float y = 0.f) {
         if (texture.getSize().x == 0 &&
-            !texture.loadFromFile("assets/pictures/tiles/lowerRightCorner.png"))
+            !texture.loadFromFile("assets/pictures/tiles/lowerRightCorner.jpg"))
         {
             std::cerr << "Ошибка загрузки lowerTorch.png\n";
         }
@@ -230,7 +230,7 @@ static sf::Texture texture;
 public:
     LeftLowerWallCorner(float x = 0.f, float y = 0.f) {
         if (texture.getSize().x == 0 &&
-            !texture.loadFromFile("assets/pictures/tiles/lowerLeftCorner.png"))
+            !texture.loadFromFile("assets/pictures/tiles/lowerLeftCorner.jpg"))
         {
             std::cerr << "Ошибка загрузки lowerTorch.png\n";
         }
