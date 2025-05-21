@@ -37,6 +37,10 @@ void room::SetNumberOfTorchesInRoom(int numberOfTorchersRoom) {
     _numberOfTorchersRoom = numberOfTorchersRoom;
 }
 
+void room::SetWaterRadius(int waterRadius) {
+    _waterRadius = waterRadius;
+}
+
 void room::SetRoom() {
     const float TILE_SIZE = 64.f;
     Room.resize(_roomWidth);
@@ -75,8 +79,9 @@ void room::SetRoom() {
 
 void room::PutTorchesInRoom() {
     const float TILE_SIZE = 64.f;
-    int errorRigthWall = RandomGenerator::getRandomNumber(-1, 1);
-    int errorLeftWall = RandomGenerator::getRandomNumber(-1, 1);
+    RandomGenerator Generator;
+    int errorRigthWall = Generator(-1, 1);
+    int errorLeftWall = Generator(-1, 1);
 
     auto placeLeftTorch = [&](int row) {
         if (row >= 0 && row < _roomWidth)
@@ -121,7 +126,7 @@ void room::PutColumnsInRoom() {
 
     int availableSpace = _roomLength - 2 * WALL_THICKNESS - 2 * margin;
 
-    int columnCount = 2;
+    int columnCount = (_roomLength % 2 == 0) ? 3 : 2;
 
     int columnSpacing = (availableSpace > 0) ? availableSpace / (columnCount + 1) : 0;
 
@@ -148,22 +153,39 @@ void room::PutColumnsInRoom() {
 }
 
 void room::PutWaterInRoom() {
-    int i = RandomGenerator::getRandomNumber(3, _roomWidth - 3);
-    int j = RandomGenerator::getRandomNumber(3, _roomLength - 3);
-
     const float TILE_SIZE = 64.f;
+    RandomGenerator Generator;
 
-    delete Room[i][j];
-    delete Room[i + 1][j];
-    delete Room[i - 1][j];
-    delete Room[i][j + 1];
-    delete Room[i][j - 1];
+    if (_waterRadius == 1) {
+        int i = Generator(3, _roomWidth - 3);
+        int j = Generator(3, _roomLength - 3);
 
-    Room[i][j]         = new WaterTile(j * TILE_SIZE, i * TILE_SIZE);
-    Room[i + 1][j]     = new WaterTile(j * TILE_SIZE, (i + 1) * TILE_SIZE);
-    Room[i - 1][j]     = new WaterTile(j * TILE_SIZE, (i - 1) * TILE_SIZE);
-    Room[i][j + 1]     = new WaterTile((j + 1) * TILE_SIZE, i * TILE_SIZE);
-    Room[i][j - 1]     = new WaterTile((j - 1) * TILE_SIZE, i * TILE_SIZE);
+        delete Room[i][j];
+        delete Room[i + 1][j];
+        delete Room[i - 1][j];
+        delete Room[i][j + 1];
+        delete Room[i][j - 1];
+
+        Room[i][j]         = new WaterTile(j * TILE_SIZE, i * TILE_SIZE);
+        Room[i + 1][j]     = new WaterTile(j * TILE_SIZE, (i + 1) * TILE_SIZE);
+        Room[i - 1][j]     = new WaterTile(j * TILE_SIZE, (i - 1) * TILE_SIZE);
+        Room[i][j + 1]     = new WaterTile((j + 1) * TILE_SIZE, i * TILE_SIZE);
+        Room[i][j - 1]     = new WaterTile((j - 1) * TILE_SIZE, i * TILE_SIZE);
+
+    }else if (_waterRadius == 2) {
+        int x = Generator(2, _roomWidth - 7);
+        int y = Generator(2, _roomLength - 7);
+        for (int i = x; i < x + 5; ++i) {
+            for (int j = y; j < y + 5; ++j) {
+                if ((i != x || j != y + 4) && (i != x || j != y) && (i != x + 4 || j != y + 4) &&
+                    (i != x + 4 || j != y)) {
+                    delete Room[i][j];
+                    Room[i][j] = new WaterTile(j * TILE_SIZE, i * TILE_SIZE);
+                }
+            }
+        }
+    }
+
 }
 
 RoomBuilder::RoomBuilder() {
@@ -186,10 +208,11 @@ void room::draw(sf::RenderWindow& window) {
     }
 }
 
-room* Director::CreateRoom(RoomBuilder& builder, bool IsTorchesInRoom, bool IsColumnInRoom, bool IsWaterInRoom) {
+room* Director::CreateRoom(RoomBuilder& builder) {
     builder.SetRoomLength();
     builder.SetRoomWidth();
-    builder.SetTorchesInRoom(IsTorchesInRoom);
+    builder.SetTorchesInRoom();
+    builder.SetWaterInRoom();
     builder.GetRoom()->SetRoom();
     return builder.GetRoom();
 }
