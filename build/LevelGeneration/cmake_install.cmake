@@ -1,4 +1,4 @@
-# Install script for directory: /home/van/git/Master-Helper-for-DnD/LevelGeneration
+# Install script for directory: /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/LevelGeneration
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

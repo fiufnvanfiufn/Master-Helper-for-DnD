@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/van/git/Master-Helper-for-DnD
+CMAKE_SOURCE_DIR = /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/van/git/Master-Helper-for-DnD/build
+CMAKE_BINARY_DIR = /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/van/git/Master-Helper-for-DnD/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/van/git/Master-Helper-for-DnD/build/CMakeFiles /home/van/git/Master-Helper-for-DnD/build/LevelGeneration//CMakeFiles/progress.marks
-	cd /home/van/git/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 LevelGeneration/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/van/git/Master-Helper-for-DnD/build/CMakeFiles 0
+	cd /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build/CMakeFiles /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build/LevelGeneration//CMakeFiles/progress.marks
+	cd /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 LevelGeneration/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/van/git/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 LevelGeneration/clean
+	cd /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 LevelGeneration/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/van/git/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 LevelGeneration/preinstall
+	cd /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 LevelGeneration/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/van/git/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 LevelGeneration/preinstall
+	cd /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 LevelGeneration/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/van/git/Master-Helper-for-DnD/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 LevelGeneration/CMakeFiles/LevelGeneration.dir/rule:
-	cd /home/van/git/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 LevelGeneration/CMakeFiles/LevelGeneration.dir/rule
+	cd /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 LevelGeneration/CMakeFiles/LevelGeneration.dir/rule
 .PHONY : LevelGeneration/CMakeFiles/LevelGeneration.dir/rule
 
 # Convenience name for target.
@@ -127,7 +127,7 @@ LevelGeneration: LevelGeneration/CMakeFiles/LevelGeneration.dir/rule
 
 # fast build rule for target.
 LevelGeneration/fast:
-	cd /home/van/git/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f LevelGeneration/CMakeFiles/LevelGeneration.dir/build.make LevelGeneration/CMakeFiles/LevelGeneration.dir/build
+	cd /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f LevelGeneration/CMakeFiles/LevelGeneration.dir/build.make LevelGeneration/CMakeFiles/LevelGeneration.dir/build
 .PHONY : LevelGeneration/fast
 
 levelGeneration.o: levelGeneration.cpp.o
@@ -135,7 +135,7 @@ levelGeneration.o: levelGeneration.cpp.o
 
 # target to build an object file
 levelGeneration.cpp.o:
-	cd /home/van/git/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f LevelGeneration/CMakeFiles/LevelGeneration.dir/build.make LevelGeneration/CMakeFiles/LevelGeneration.dir/levelGeneration.cpp.o
+	cd /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f LevelGeneration/CMakeFiles/LevelGeneration.dir/build.make LevelGeneration/CMakeFiles/LevelGeneration.dir/levelGeneration.cpp.o
 .PHONY : levelGeneration.cpp.o
 
 levelGeneration.i: levelGeneration.cpp.i
@@ -143,7 +143,7 @@ levelGeneration.i: levelGeneration.cpp.i
 
 # target to preprocess a source file
 levelGeneration.cpp.i:
-	cd /home/van/git/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f LevelGeneration/CMakeFiles/LevelGeneration.dir/build.make LevelGeneration/CMakeFiles/LevelGeneration.dir/levelGeneration.cpp.i
+	cd /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f LevelGeneration/CMakeFiles/LevelGeneration.dir/build.make LevelGeneration/CMakeFiles/LevelGeneration.dir/levelGeneration.cpp.i
 .PHONY : levelGeneration.cpp.i
 
 levelGeneration.s: levelGeneration.cpp.s
@@ -151,7 +151,7 @@ levelGeneration.s: levelGeneration.cpp.s
 
 # target to generate assembly for a file
 levelGeneration.cpp.s:
-	cd /home/van/git/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f LevelGeneration/CMakeFiles/LevelGeneration.dir/build.make LevelGeneration/CMakeFiles/LevelGeneration.dir/levelGeneration.cpp.s
+	cd /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build && $(MAKE) $(MAKESILENT) -f LevelGeneration/CMakeFiles/LevelGeneration.dir/build.make LevelGeneration/CMakeFiles/LevelGeneration.dir/levelGeneration.cpp.s
 .PHONY : levelGeneration.cpp.s
 
 # Help Target
@@ -177,6 +177,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/van/git/Master-Helper-for-DnD/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

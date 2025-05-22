@@ -8,7 +8,7 @@
 #include "levelGenerator.hpp"
 
 int runMainMenu(sf::Font& font) {
-    sf::RenderWindow menu(sf::VideoMode(1920, 1080), L"Меню");
+    sf::RenderWindow menu(sf::VideoMode(1920, 1080), L"Меню", sf::Style::Titlebar | sf::Style::Close);
 
     sf::Texture backgroundTexture;
     if (!backgroundTexture.loadFromFile("assets/pictures/backgrounds/menuBackground.png")) {
