@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD
+CMAKE_SOURCE_DIR = /home/van/git/Master-Helper-for-DnD
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build
+CMAKE_BINARY_DIR = /home/van/git/Master-Helper-for-DnD/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -117,14 +117,14 @@ CMakeFiles/MasterHelper.dir/all: button/CMakeFiles/button.dir/all
 CMakeFiles/MasterHelper.dir/all: LevelGeneration/CMakeFiles/LevelGeneration.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MasterHelper.dir/build.make CMakeFiles/MasterHelper.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MasterHelper.dir/build.make CMakeFiles/MasterHelper.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build/CMakeFiles --progress-num=3,4,5,6,7,8 "Built target MasterHelper"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/van/git/Master-Helper-for-DnD/build/CMakeFiles --progress-num=3,4,5,6,7,8 "Built target MasterHelper"
 .PHONY : CMakeFiles/MasterHelper.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/MasterHelper.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/van/git/Master-Helper-for-DnD/build/CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/MasterHelper.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/van/git/Master-Helper-for-DnD/build/CMakeFiles 0
 .PHONY : CMakeFiles/MasterHelper.dir/rule
 
 # Convenience name for target.
@@ -143,14 +143,14 @@ CMakeFiles/MasterHelper.dir/clean:
 button/CMakeFiles/button.dir/all:
 	$(MAKE) $(MAKESILENT) -f button/CMakeFiles/button.dir/build.make button/CMakeFiles/button.dir/depend
 	$(MAKE) $(MAKESILENT) -f button/CMakeFiles/button.dir/build.make button/CMakeFiles/button.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build/CMakeFiles --progress-num=9,10 "Built target button"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/van/git/Master-Helper-for-DnD/build/CMakeFiles --progress-num=9,10 "Built target button"
 .PHONY : button/CMakeFiles/button.dir/all
 
 # Build rule for subdir invocation for target.
 button/CMakeFiles/button.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/van/git/Master-Helper-for-DnD/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 button/CMakeFiles/button.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/van/git/Master-Helper-for-DnD/build/CMakeFiles 0
 .PHONY : button/CMakeFiles/button.dir/rule
 
 # Convenience name for target.
@@ -169,14 +169,14 @@ button/CMakeFiles/button.dir/clean:
 LevelGeneration/CMakeFiles/LevelGeneration.dir/all:
 	$(MAKE) $(MAKESILENT) -f LevelGeneration/CMakeFiles/LevelGeneration.dir/build.make LevelGeneration/CMakeFiles/LevelGeneration.dir/depend
 	$(MAKE) $(MAKESILENT) -f LevelGeneration/CMakeFiles/LevelGeneration.dir/build.make LevelGeneration/CMakeFiles/LevelGeneration.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build/CMakeFiles --progress-num=1,2 "Built target LevelGeneration"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/van/git/Master-Helper-for-DnD/build/CMakeFiles --progress-num=1,2 "Built target LevelGeneration"
 .PHONY : LevelGeneration/CMakeFiles/LevelGeneration.dir/all
 
 # Build rule for subdir invocation for target.
 LevelGeneration/CMakeFiles/LevelGeneration.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/van/git/Master-Helper-for-DnD/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 LevelGeneration/CMakeFiles/LevelGeneration.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/van/git/Master-Helper-for-DnD/build/CMakeFiles 0
 .PHONY : LevelGeneration/CMakeFiles/LevelGeneration.dir/rule
 
 # Convenience name for target.

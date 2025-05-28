@@ -9,10 +9,10 @@ sf::Texture RightTorchTile::texture;
 sf::Texture LeftTorchTile::texture;
 sf::Texture UpperTorchTile::texture;
 sf::Texture LowerTorchTile::texture;
-sf::Texture RightUpperWallCorner::texture;
-sf::Texture LeftUpperWallCorner::texture;
-sf::Texture RightLowerWallCorner::texture;
-sf::Texture LeftLowerWallCorner::texture;
+sf::Texture RightUpperWallCornerTile::texture;
+sf::Texture LeftUpperWallCornerTile::texture;
+sf::Texture RightLowerWallCornerTile::texture;
+sf::Texture LeftLowerWallCornerTile::texture;
 sf::Texture ColumnTile::texture;
 sf::Texture WaterTile::texture;
 
@@ -23,6 +23,30 @@ room::~room() {
             Room[i][j] = nullptr;
         }
     }
+}
+
+TilesTypes DeterminateTileType(int i, int j, int _roomWidth, int _roomLength) {
+    TilesTypes Type;
+    if (i == _roomWidth - 1 && j != 0 && j != _roomLength - 1) {
+        Type = TilesTypes::LowerWall;//Room[i][j] = new LowerWallTile(x, y);
+    } else if(i == 0 && j != 0 && j != _roomLength - 1) {
+        Type = TilesTypes::UpperWall;//Room[i][j] = new UpperWallTile(x, y);
+    } else if(j == _roomLength - 1 && i != 0 && i != _roomWidth - 1) {
+        Type = TilesTypes::RightWall;//Room[i][j] = new RightWallTile(x, y);
+    } else if (j == 0 && i != 0 && i != _roomWidth - 1){
+        Type = TilesTypes::LeftWall;//Room[i][j] = new LeftWallTile(x, y);
+    }  else if (i == _roomWidth - 1 && j == 0) {
+        Type = TilesTypes::LeftLowerCorner;//Room[i][j] = new LeftLowerWallCornerTile(x,y);
+    } else if (i == 0 && j == 0) {
+        Type = TilesTypes::LeftUpperCorner;//Room[i][j] = new LeftUpperWallCornerTile(x,y);
+    } else if (i == 0 && j == _roomLength - 1) {
+        Type = TilesTypes::RightUpperCorner;//Room[i][j] = new RightUpperWallCornerTile(x,y);
+    } else if (i == _roomWidth - 1 && j == _roomLength - 1) {
+        Type = TilesTypes::RightLowerCorner;//Room[i][j] = new RightLowerWallCornerTile(x,y);
+    } else {
+        Type = TilesTypes::Floor;//Room[i][j] = new FloorTile(x, y);
+    }
+    return Type;
 }
 
 void room::SetRoomWidth(int roomWidth) {
@@ -54,25 +78,10 @@ void room::SetRoom() {
             if (Room[i][j] != nullptr) {
                     delete Room[i][j];
             }
-            if (i == _roomWidth - 1 && j != 0 && j != _roomLength - 1) {
-                Room[i][j] = new LowerWallTile(x, y);
-            } else if(i == 0 && j != 0 && j != _roomLength - 1) {
-                Room[i][j] = new UpperWallTile(x, y);
-            } else if(j == _roomLength - 1 && i != 0 && i != _roomWidth - 1) {
-                Room[i][j] = new RightWallTile(x, y);
-            } else if (j == 0 && i != 0 && i != _roomWidth - 1){
-                Room[i][j] = new LeftWallTile(x, y);
-            }  else if (i == _roomWidth - 1 && j == 0) {
-                Room[i][j] = new LeftLowerWallCorner(x,y);
-            } else if (i == 0 && j == 0) {
-                Room[i][j] = new LeftUpperWallCorner(x,y);
-            } else if (i == 0 && j == _roomLength - 1) {
-                Room[i][j] = new RightUpperWallCorner(x,y);
-            } else if (i == _roomWidth - 1 && j == _roomLength - 1) {
-                Room[i][j] = new RightLowerWallCorner(x,y);
-            } else {
-                Room[i][j] = new FloorTile(x, y);
-            }
+
+            TilesTypes TileType = DeterminateTileType(i, j, _roomWidth, _roomLength);
+
+            Room[i][j] = TileFactory::createTile(TileType, x, y);
         }
     }
 }

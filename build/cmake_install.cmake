@@ -1,4 +1,4 @@
-# Install script for directory: /home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD
+# Install script for directory: /home/van/git/Master-Helper-for-DnD
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,12 +44,12 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build/button/cmake_install.cmake")
+  include("/home/van/git/Master-Helper-for-DnD/build/button/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build/LevelGeneration/cmake_install.cmake")
+  include("/home/van/git/Master-Helper-for-DnD/build/LevelGeneration/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -60,5 +60,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/sans2114/Schebletsov-Lev/Master-Helper-for-DnD/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/van/git/Master-Helper-for-DnD/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

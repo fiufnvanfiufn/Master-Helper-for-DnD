@@ -3,6 +3,22 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
+enum class TilesTypes {
+    Floor,
+    LowerWall,
+    UpperWall,
+    RightWall,
+    LeftWall,
+    LeftLowerCorner,
+    LeftUpperCorner,
+    RightLowerCorner,
+    RightUpperCorner,
+    LeftTorch,
+    RightTorch,
+    Column,
+    Water,
+};
+
 class Tile {
 protected:
     static constexpr float TILE_SIZE = 64.f;
@@ -170,11 +186,11 @@ public:
     }
 };
 
-class RightUpperWallCorner : public Tile {
+class RightUpperWallCornerTile : public Tile {
 private:
     static sf::Texture texture;
 public:
-    RightUpperWallCorner(float x = 0.f, float y = 0.f) {
+    RightUpperWallCornerTile(float x = 0.f, float y = 0.f) {
         if (texture.getSize().x == 0 &&
             !texture.loadFromFile("assets/pictures/tiles/upperRightCorner.jpg"))
         {
@@ -185,14 +201,14 @@ public:
         setPosition(x, y);
     }
 
-    ~RightUpperWallCorner() {}
+    ~RightUpperWallCornerTile() {}
 };
 
-class LeftUpperWallCorner : public Tile {
+class LeftUpperWallCornerTile : public Tile {
 private:
 static sf::Texture texture;
 public:
-    LeftUpperWallCorner(float x = 0.f, float y = 0.f) {
+    LeftUpperWallCornerTile(float x = 0.f, float y = 0.f) {
         if (texture.getSize().x == 0 &&
             !texture.loadFromFile("assets/pictures/tiles/upperLeftCorner.jpg"))
         {
@@ -203,14 +219,14 @@ public:
         setPosition(x, y);
     }
 
-    ~LeftUpperWallCorner() {}
+    ~LeftUpperWallCornerTile() {}
 };
 
-class RightLowerWallCorner : public Tile {
+class RightLowerWallCornerTile : public Tile {
 private:
 static sf::Texture texture;
 public:
-    RightLowerWallCorner(float x = 0.f, float y = 0.f) {
+    RightLowerWallCornerTile(float x = 0.f, float y = 0.f) {
         if (texture.getSize().x == 0 &&
             !texture.loadFromFile("assets/pictures/tiles/lowerRightCorner.jpg"))
         {
@@ -221,14 +237,14 @@ public:
         setPosition(x, y);
     }
 
-    ~RightLowerWallCorner() {}
+    ~RightLowerWallCornerTile() {}
 };
 
-class LeftLowerWallCorner : public Tile {
+class LeftLowerWallCornerTile : public Tile {
 private:
 static sf::Texture texture;
 public:
-    LeftLowerWallCorner(float x = 0.f, float y = 0.f) {
+    LeftLowerWallCornerTile(float x = 0.f, float y = 0.f) {
         if (texture.getSize().x == 0 &&
             !texture.loadFromFile("assets/pictures/tiles/lowerLeftCorner.jpg"))
         {
@@ -239,7 +255,7 @@ public:
         setPosition(x, y);
     }
 
-    ~LeftLowerWallCorner() {}
+    ~LeftLowerWallCornerTile() {}
 };
 
 class ColumnTile : public Tile {
@@ -276,4 +292,39 @@ public:
     }
 
     ~WaterTile() {}
+};
+
+class TileFactory {
+public:
+    static Tile* createTile(TilesTypes type, float x, float y) {
+        Tile* a;
+        switch (type) {
+            case TilesTypes::Floor:
+                a = new FloorTile(x, y);
+            case TilesTypes::LowerWall:
+                a = new LowerWallTile(x, y);
+            case TilesTypes::UpperWall:
+                a = new UpperWallTile(x, y);
+            case TilesTypes::LeftLowerCorner:
+                a = new LeftLowerWallCornerTile(x, y);
+            case TilesTypes::RightLowerCorner:
+                a = new RightLowerWallCornerTile(x, y);
+            case TilesTypes::LeftUpperCorner:
+                a = new LeftUpperWallCornerTile(x, y);
+            case TilesTypes::RightUpperCorner:
+                a = new RightUpperWallCornerTile(x, y);
+            case TilesTypes::RightTorch:
+                a = new RightTorchTile(x, y);
+            case TilesTypes::LeftTorch:
+                a = new LeftTorchTile(x, y);
+            case TilesTypes::Column:
+                a = new ColumnTile(x, y);
+            case TilesTypes::Water:
+                a = new WaterTile(x, y);
+            default:
+                throw std::invalid_argument("Unknown tile type");
+
+        }
+        return a;
+    }
 };
