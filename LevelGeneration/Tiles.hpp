@@ -296,35 +296,51 @@ public:
 
 class TileFactory {
 public:
-    static Tile* createTile(TilesTypes type, float x, float y) {
-        Tile* a;
+    void createTile(TilesTypes type, float x, float y, Tile*& tilePtr) {
         switch (type) {
             case TilesTypes::Floor:
-                a = new FloorTile(x, y);
+                tilePtr = new FloorTile(x, y);
+                break;
             case TilesTypes::LowerWall:
-                a = new LowerWallTile(x, y);
+                tilePtr = new LowerWallTile(x, y);
+                break;
             case TilesTypes::UpperWall:
-                a = new UpperWallTile(x, y);
+                tilePtr = new UpperWallTile(x, y);
+                break;
+            case TilesTypes::LeftWall:
+                tilePtr = new LeftWallTile(x, y);
+                break;
+            case TilesTypes::RightWall:
+                tilePtr = new RightWallTile(x, y);
+                break;
             case TilesTypes::LeftLowerCorner:
-                a = new LeftLowerWallCornerTile(x, y);
+                tilePtr = new LeftLowerWallCornerTile(x, y);
+                break;
             case TilesTypes::RightLowerCorner:
-                a = new RightLowerWallCornerTile(x, y);
+                tilePtr = new RightLowerWallCornerTile(x, y);
+                break;
             case TilesTypes::LeftUpperCorner:
-                a = new LeftUpperWallCornerTile(x, y);
+                tilePtr = new LeftUpperWallCornerTile(x, y);
+                break;
             case TilesTypes::RightUpperCorner:
-                a = new RightUpperWallCornerTile(x, y);
+                tilePtr = new RightUpperWallCornerTile(x, y);
+                break;
             case TilesTypes::RightTorch:
-                a = new RightTorchTile(x, y);
+                tilePtr = new RightTorchTile(x, y);
+                break;
             case TilesTypes::LeftTorch:
-                a = new LeftTorchTile(x, y);
+                tilePtr = new LeftTorchTile(x, y);
+                break;
             case TilesTypes::Column:
-                a = new ColumnTile(x, y);
+                tilePtr = new ColumnTile(x, y);
+                break;
             case TilesTypes::Water:
-                a = new WaterTile(x, y);
+                tilePtr = new WaterTile(x, y);
+                break;
             default:
                 throw std::invalid_argument("Unknown tile type");
+                break;
 
         }
-        return a;
     }
 };

@@ -78,10 +78,9 @@ void room::SetRoom() {
             if (Room[i][j] != nullptr) {
                     delete Room[i][j];
             }
-
             TilesTypes TileType = DeterminateTileType(i, j, _roomWidth, _roomLength);
-
-            Room[i][j] = TileFactory::createTile(TileType, x, y);
+            TileFactory factory;
+            factory.createTile(TileType, x, y, Room[i][j]);
         }
     }
 }
