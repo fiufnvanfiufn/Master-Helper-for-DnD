@@ -3,20 +3,20 @@ Clone repository:
 git@github.com:fiufnvanfiufn/Master-Helper-for-DnD.git
 ```
  
-Install dependancies
+Install dependancies:
 ```bash
 sudo apt update
 sudo apt install g++ cmake make libsfml-dev
 ```
 
-Build project
+Build project:
 ```bash
 cd build
 cmake ..
 cmake --build .
 ```
 
-Run:
+Run the application:
 ```bash
 ./MasterHelper
 ```
